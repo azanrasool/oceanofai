@@ -1,1 +1,1814 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Of AI Tools - 200 Tools</title>
+    <!-- Link to a potential CSS file for styling (optional) -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* Basic styles */
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 15px; /* Reduced margin */
+        }
+        header p {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #searchInput {
+            padding: 10px 15px;
+            width: 80%;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 1em;
+            box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        #searchInput:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Tool List Styles */
+        .tool-list {
+            list-style: none;
+            padding: 0;
+        }
+        .tool-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Vertically center items */
+            transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, padding 0.3s ease-in-out, margin 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth hide/show */
+            overflow: hidden; /* Needed for height transition */
+        }
+
+        /* Style for hidden items during search */
+        .tool-item.hidden {
+           opacity: 0;
+           height: 0;
+           padding-top: 0;
+           padding-bottom: 0;
+           margin-top: 0;
+           margin-bottom: 0;
+           border-width: 0;
+        }
+
+
+        .tool-image {
+            width: 50px; /* Fixed width for logo */
+            height: 50px; /* Fixed height for logo */
+            object-fit: contain; /* Scale image nicely */
+            margin-right: 15px; /* Space between image and text */
+            border-radius: 5px; /* Slightly rounded corners for image */
+            flex-shrink: 0; /* Prevent image from shrinking */
+            background-color: #eee; /* Placeholder background */
+        }
+
+        .tool-details {
+            flex-grow: 1; /* Allow text details to take remaining space */
+            min-width: 0; /* Prevent flex item overflow */
+        }
+
+        .tool-details strong {
+            color: #003d80;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .tool-details a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-left: 10px; /* Space name and link */
+        }
+        .tool-details a:hover {
+            text-decoration: underline;
+        }
+        .tool-description {
+            color: #555;
+            font-size: 0.95em;
+            margin-top: 8px;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌊 Ocean Of AI Tools 🌊</h1>
+        <p>Your curated list of 200 popular AI tools. Use the search bar to find tools!</p>
+    </header>
+
+    <main>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for AI tools by name or description...">
+        </div>
+
+        <!-- AI Tool List -->
+        <ul class="tool-list" id="toolList">
+            <!-- ** YOU MUST REPLACE placeholder images and links! ** -->
+
+            <!-- Tools 1-100 (as previously generated) -->
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/0000FF/FFFFFF?text=AI1" alt="ChatGPT Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>1. ChatGPT (OpenAI)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Powerful conversational AI for text generation, translation, coding help, and more.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/4285F4/FFFFFF?text=AI2" alt="Google Gemini Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>2. Google Gemini (Google)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Google's multimodal AI model for understanding and generating text, images, audio, and code.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/8A2BE2/FFFFFF?text=AI3" alt="Midjourney Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>3. Midjourney</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">High-quality AI image generator known for its artistic and detailed outputs (often used via Discord).</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI4" alt="DALL-E 3 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>4. DALL-E 3 (OpenAI)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI system that can create realistic images and art from a description in natural language.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/32CD32/FFFFFF?text=AI5" alt="Stable Diffusion Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>5. Stable Diffusion (Stability AI)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Open-source text-to-image model allowing for high customization and local execution.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/1E90FF/FFFFFF?text=AI6" alt="GitHub Copilot Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>6. GitHub Copilot</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI pair programmer that assists developers with code suggestions and completion.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DAA520/FFFFFF?text=AI7" alt="Claude Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>7. Claude (Anthropic)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI assistant focused on safety and helpfulness, known for reasoning and long context.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF69B4/FFFFFF?text=AI8" alt="Perplexity AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>8. Perplexity AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered search engine that provides direct answers with citations.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/008080/FFFFFF?text=AI9" alt="Grammarly Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>9. Grammarly</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered writing assistant for grammar, spelling, style, and tone checking.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/708090/FFFFFF?text=AI10" alt="Notion AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>10. Notion AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features integrated into Notion for summarizing, brainstorming, and drafting.</p>
+                 </div>
+             </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/8A2BE2/FFFFFF?text=AI11" alt="Canva AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>11. Canva AI Tools</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Suite of AI tools within Canva for image generation, magic writing, background removal, etc.</p>
+                 </div>
+             </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF4500/FFFFFF?text=AI12" alt="Jasper Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>12. Jasper</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI content platform for marketing teams to generate copy, blog posts, and other marketing materials.</p>
+                 </div>
+             </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/2E8B57/FFFFFF?text=AI13" alt="Copy.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>13. Copy.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI copywriting tool for generating marketing copy, emails, social media posts, and more.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/4682B4/FFFFFF?text=AI14" alt="Synthesia Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>14. Synthesia</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video generation platform creating videos with AI avatars from text.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D2691E/FFFFFF?text=AI15" alt="RunwayML Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>15. RunwayML</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI magic tools for creatives, including text-to-video, video editing, and image generation.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6A5ACD/FFFFFF?text=AI16" alt="ElevenLabs Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>16. ElevenLabs</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI voice synthesis and text-to-speech platform known for realistic voice cloning.</p>
+                 </div>
+             </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFD700/000000?text=AI17" alt="Descript Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>17. Descript</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">All-in-one audio and video editor with AI features like transcription, overdub, and filler word removal.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DC143C/FFFFFF?text=AI18" alt="Fireflies.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>18. Fireflies.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI meeting assistant that records, transcribes, and summarizes conversations.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00FFFF/000000?text=AI19" alt="Otter.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>19. Otter.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for real-time transcription and note-taking during meetings.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B8860B/FFFFFF?text=AI20" alt="Tome Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>20. Tome</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered storytelling and presentation creation tool.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF0000/FFFFFF?text=AI21" alt="Adobe Firefly Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>21. Adobe Firefly</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Adobe's family of creative generative AI models integrated into Photoshop, Illustrator, etc.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7FFF00/000000?text=AI22" alt="Leonardo.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>22. Leonardo.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform for creating high-quality visual assets like game assets and concept art using AI.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/BA55D3/FFFFFF?text=AI23" alt="Murf.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>23. Murf.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Versatile AI voice generator with a wide range of voices for presentations and videos.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA500/FFFFFF?text=AI24" alt="Writesonic Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>24. Writesonic</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writer for creating SEO-friendly marketing content like blogs, ads, and descriptions.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00FA9A/000000?text=AI25" alt="Pictory.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>25. Pictory.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool that automatically creates short, branded videos from long-form content.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEEB/000000?text=AI26" alt="Replit AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>26. Replit AI (Ghostwriter)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI coding assistant integrated into the Replit online IDE.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9932CC/FFFFFF?text=AI27" alt="Tabnine Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>27. Tabnine</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI code completion assistant supporting various IDEs and languages.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/E9967A/FFFFFF?text=AI28" alt="Beautiful.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>28. Beautiful.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered presentation software that designs slides automatically.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/40E0D0/000000?text=AI29" alt="HeyGen Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>29. HeyGen</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video platform specializing in generating spokesperson videos with avatars.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F5F5DC/000000?text=AI30" alt="LLaMA Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>30. LLaMA (Meta AI)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Family of large language models released by Meta, often used as a base for others.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00008B/FFFFFF?text=AI31" alt="DeepL Write Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>31. DeepL Write</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing assistant focusing on improving text clarity, style, and grammar.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/3CB371/FFFFFF?text=AI32" alt="QuillBot Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>32. QuillBot</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI paraphrasing tool, summarizer, and grammar checker.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF8C00/FFFFFF?text=AI33" alt="Semrush AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>33. Semrush AI Tools</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Suite of AI-driven SEO and content marketing tools.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/C71585/FFFFFF?text=AI34" alt="Character.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>34. Character.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform for creating and chatting with AI characters based on fictional or real people.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/191970/FFFFFF?text=AI35" alt="You.com Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>35. You.com</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI chat and search engine focusing on privacy and customization.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF1493/FFFFFF?text=AI36" alt="Gencraft Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>36. Gencraft</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI art generator focusing on ease of use for creating images and videos.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/ADFF2F/000000?text=AI37" alt="Looka Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>37. Looka</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered platform for designing logos and branding materials.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/ADD8E6/000000?text=AI38" alt="Designs.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>38. Designs.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI suite for creating logos, videos, banners, and mockups.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFB6C1/000000?text=AI39" alt="Riffusion Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>39. Riffusion</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for generating music from text prompts, often visualizing it.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA07A/000000?text=AI40" alt="Soundraw.io Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>40. Soundraw.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI music generator allowing users to create unique, royalty-free music.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/EE82EE/FFFFFF?text=AI41" alt="Khroma Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>41. Khroma</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI color tool for designers to discover and generate color palettes.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F0E68C/000000?text=AI42" alt="Let's Enhance Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>42. Let's Enhance</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for image upscaling and enhancement without quality loss.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/98FB98/000000?text=AI43" alt="Remove.bg Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>43. Remove.bg</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to automatically remove backgrounds from images.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/AFEEEE/000000?text=AI44" alt="AutoDraw Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>44. AutoDraw (Google)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Simple AI drawing tool that pairs machine learning with artist drawings.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DB7093/FFFFFF?text=AI45" alt="Wordtune Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>45. Wordtune</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing companion that helps rephrase sentences, adjust tone, and summarize text.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFEFD5/000000?text=AI46" alt="Rytr Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>46. Rytr</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing assistant for generating various content types quickly and affordably.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/CD5C5C/FFFFFF?text=AI47" alt="CodiumAI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>47. CodiumAI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI toolkit for developers focusing on generating meaningful tests and analyzing code.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/483D8B/FFFFFF?text=AI48" alt="Blackbox AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>48. Blackbox AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI coding assistant designed to answer programming questions and help write code.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F4A460/FFFFFF?text=AI49" alt="AssemblyAI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>49. AssemblyAI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">API platform for AI models specialized in speech-to-text and audio intelligence.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00CED1/000000?text=AI50" alt="Krisp Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>50. Krisp</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered noise cancelling application for removing background noise during calls.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF6347/FFFFFF?text=AI51" alt="Brain.fm Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>51. Brain.fm</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-generated functional music designed to improve focus, relaxation, and sleep.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/4169E1/FFFFFF?text=AI52" alt="Artbreeder Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>52. Artbreeder</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for creating and modifying images by blending and evolving existing ones.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/808000/FFFFFF?text=AI53" alt="Lumen5 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>53. Lumen5</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered video creation platform that transforms text content into engaging videos.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI54" alt="Surfer SEO Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>54. Surfer SEO</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Content intelligence tool using AI to help optimize articles for search engines.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6495ED/FFFFFF?text=AI55" alt="Motion Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>55. Motion</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered time management and scheduling tool to optimize your calendar.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/008B8B/FFFFFF?text=AI56" alt="Taskade Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>56. Taskade</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered productivity and collaboration platform with integrated outlining, chat, etc.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0C4DE/000000?text=AI57" alt="Decktopus AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>57. Decktopus AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI presentation maker that generates professional presentations quickly.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/556B2F/FFFFFF?text=AI58" alt="Fliki Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>58. Fliki</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool converting text into videos with voiceovers using AI voices.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9932CC/FFFFFF?text=AI59" alt="Podcastle Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>59. Podcastle</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered audio creation platform for podcasting with studio-quality features.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFD700/000000?text=AI60" alt="AdCreative.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>60. AdCreative.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for generating high-conversion ad creatives and social media posts.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI61" alt="HitPaw Photo Enhancer Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>61. HitPaw Photo Enhancer</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool focused on enhancing photo quality, upscaling, and colorizing images.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF4500/FFFFFF?text=AI62" alt="Socratic Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>62. Socratic by Google</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered learning app to help students understand school work.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DA70D6/FFFFFF?text=AI63" alt="Replika Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>63. Replika</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI companion chatbot designed for conversation and emotional support.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/8FBC8F/000000?text=AI64" alt="Codeium Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>64. Codeium</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Free AI code acceleration toolkit, offering autocompletion and chat features.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0E0E6/000000?text=AI65" alt="Visla Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>65. Visla</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video creation and editing platform for teams and individuals.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/CD853F/FFFFFF?text=AI66" alt="Stockimg.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>66. Stockimg.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI image generation tool focused on creating stock photos, wallpapers, book covers, etc.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DDA0DD/000000?text=AI67" alt="Hocoos AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>67. Hocoos AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI website builder that helps create websites quickly using AI prompts.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/BC8F8F/FFFFFF?text=AI68" alt="Sheet+ Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>68. Sheet+</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to generate and explain spreadsheet formulas (Excel & Google Sheets).</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/A0522D/FFFFFF?text=AI69" alt="Poly AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>69. Poly AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform for creating realistic, conversational voice assistants for customer service.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFDEAD/000000?text=AI70" alt="Eightify Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>70. Eightify</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool (often a browser extension) for summarizing YouTube videos.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7B68EE/FFFFFF?text=AI71" alt="Galileo AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>71. Galileo AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for generating UI designs from text descriptions.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00FF7F/000000?text=AI72" alt="Uizard Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>72. Uizard</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered tool to design wireframes, mockups, and prototypes from sketches or text.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/C71585/FFFFFF?text=AI73" alt="Rosebud AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>73. Rosebud AI (TokkingHeads)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool known for animating portraits and photos to make them talk or sing.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6B8E23/FFFFFF?text=AI74" alt="Play.ht Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>74. Play.ht</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI text-to-speech generator with a large library of realistic voices.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF8C00/FFFFFF?text=AI75" alt="Kaiber Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>75. Kaiber</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video generation tool creating visuals from images or text prompts.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/48D1CC/000000?text=AI76" alt="InVideo AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>76. InVideo AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Online video editor with AI features for creating videos from text prompts or scripts.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FA8072/FFFFFF?text=AI77" alt="Lexica Art Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>77. Lexica Art</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Search engine for AI-generated images (Stable Diffusion) and an image generator itself.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9370DB/FFFFFF?text=AI78" alt="Cognysis Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>78. Cognysis</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for data analysis and business intelligence insights.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F08080/FFFFFF?text=AI79" alt="Durable AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>79. Durable AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI website builder targeted at service businesses, generating a site in seconds.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/2E8B57/FFFFFF?text=AI80" alt="Frase.io Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>80. Frase.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for content research, writing, and optimization based on top search results.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEFA/000000?text=AI81" alt="Lovo.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>81. Lovo.ai (Genny)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI voiceover and text-to-speech platform with expressive, human-like voices.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI82" alt="MarketingBlocks AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>82. MarketingBlocks AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">All-in-one AI marketing assistant for creating landing pages, ads, graphics, emails, etc.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/778899/FFFFFF?text=AI83" alt="NightCafe Creator Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>83. NightCafe Creator</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI art generator platform offering multiple methods like text-to-image and style transfer.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0E0E6/000000?text=AI84" alt="Phind Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>84. Phind</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI search engine designed specifically for developers, providing code examples.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFC0CB/000000?text=AI85" alt="Piggy Magic Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>85. Piggy Magic</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to generate mobile-friendly web pages or presentations from text prompts.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/E6E6FA/000000?text=AI86" alt="Poised Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>86. Poised</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI communication coach providing real-time feedback on virtual meetings.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFFACD/000000?text=AI87" alt="PromptPerfect Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>87. PromptPerfect</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool designed to optimize prompts for better results from generative AI models.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D8BFD8/000000?text=AI88" alt="Quickchat AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>88. Quickchat AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform for building custom AI assistants powered by models like GPT.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFB6C1/000000?text=AI89" alt="Remini Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>89. Remini</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI photo and video enhancer app, popular for restoring old or blurry media.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA07A/000000?text=AI90" alt="SlidesAI.io Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>90. SlidesAI.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to create presentation slides from text quickly (integrates with Google Slides).</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI91" alt="Smodin Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>91. Smodin</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing assistant with features like rewriting, plagiarism checking, and citation generation.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEEB/000000?text=AI92" alt="Sonix Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>92. Sonix</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Automated transcription, translation, and subtitling service powered by AI.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/32CD32/FFFFFF?text=AI93" alt="StealthWriter Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>93. StealthWriter</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool designed to rewrite AI-generated text to make it sound more human.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6A5ACD/FFFFFF?text=AI94" alt="Supernormal Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>94. Supernormal</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI meeting assistant that automatically takes notes and generates summaries.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/EE82EE/FFFFFF?text=AI95" alt="Typeface AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>95. Typeface AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Generative AI platform for enterprise content creation, ensuring brand consistency.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F5DEB3/000000?text=AI96" alt="Unbounce Smart Copy Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>96. Unbounce Smart Copy</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI copywriting tool focused on creating marketing content and landing page copy.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/5F9EA0/FFFFFF?text=AI97" alt="Voilà Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>97. Voilà</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI assistant (browser extension) working across websites to help write emails, summarize pages.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7FFF00/000000?text=AI98" alt="Wepik AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>98. Wepik AI Tools</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tools integrated into the Wepik design platform for presentations, images, and writing.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D2691E/FFFFFF?text=AI99" alt="Windsor.io Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>99. Windsor.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for sending personalized videos to customers at scale.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/1E90FF/FFFFFF?text=AI100" alt="Zoom AI Companion Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>100. Zoom AI Companion</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features integrated into Zoom for meeting summaries, smart recordings, chat compose, etc.</p>
+                 </div>
+             </li>
+
+            <!-- Tools 101-200 (New Additions - PLACEHOLDERS) -->
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF00FF/FFFFFF?text=AI101" alt="AI Tool 101 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>101. AI Dungeon</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Text-based adventure game powered by AI, allowing for open-ended storytelling.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/00FF00/FFFFFF?text=AI102" alt="AI Tool 102 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>102. AIVA</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI music composer for creating original soundtracks for videos, games, and more.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFFF00/000000?text=AI103" alt="AI Tool 103 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>103. Boomy</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool that allows users to create original songs in seconds, even without music experience.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/0000CD/FFFFFF?text=AI104" alt="AI Tool 104 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>104. Clipchamp AI Features</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Microsoft Clipchamp video editor includes AI features like auto composition.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/8B008B/FFFFFF?text=AI105" alt="AI Tool 105 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>105. CodeWhisperer (AWS)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI coding companion from Amazon Web Services, similar to Copilot.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF8C00/FFFFFF?text=AI106" alt="AI Tool 106 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>106. Deep Nostalgia (MyHeritage)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI feature to animate faces in still photos, particularly historical ones.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/E0FFFF/000000?text=AI107" alt="AI Tool 107 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>107. DreamStudio (Stability AI)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Web interface for using Stable Diffusion models to generate images.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/DC143C/FFFFFF?text=AI108" alt="AI Tool 108 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>108. Gamma</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for creating engaging presentations, documents, and webpages from notes.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/7CFC00/000000?text=AI109" alt="AI Tool 109 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>109. Glasp</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Social web highlighter and note-taking tool with AI summarization features.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFD700/000000?text=AI110" alt="AI Tool 110 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>110. Hotpot.ai</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Collection of AI tools for graphics, images, and writing tasks.</p>
+                </div>
+            </li>
+            <!-- Add 90 more placeholder items -->
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/ADFF2F/000000?text=AI111" alt="AI Tool 111 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>111. Hume AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI focused on understanding and generating vocal expressions of emotion.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/B22222/FFFFFF?text=AI112" alt="AI Tool 112 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>112. Ideogram AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI image generator known for its ability to render text within images relatively well.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF1493/FFFFFF?text=AI113" alt="AI Tool 113 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>113. Illustroke</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for generating vector illustrations from text prompts.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/00BFFF/FFFFFF?text=AI114" alt="AI Tool 114 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>114. Interior AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for visualizing interior design ideas and virtual staging.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/9400D3/FFFFFF?text=AI115" alt="AI Tool 115 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>115. Krea AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Real-time AI image generation and enhancement tool.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/32CD32/FFFFFF?text=AI116" alt="AI Tool 116 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>116. Lalal.ai</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI-powered service for stem splitting – separating vocals, instruments etc. from audio.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI117" alt="AI Tool 117 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>117. Mage Space</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Web platform offering access to various AI image generation models.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/6A5ACD/FFFFFF?text=AI118" alt="AI Tool 118 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>118. Mem</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI-powered note-taking and knowledge management workspace.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/8B4513/FFFFFF?text=AI119" alt="AI Tool 119 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>119. Microsoft Designer</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Graphic design app with AI features for creating social media posts, invitations etc.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI120" alt="AI Tool 120 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>120. Mubert</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool generating royalty-free background music for various use cases.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/9370DB/FFFFFF?text=AI121" alt="AI Tool 121 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>121. Nvidia Canvas</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI painting tool turning simple brushstrokes into realistic landscape images (requires Nvidia RTX GPU).</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/3CB371/FFFFFF?text=AI122" alt="AI Tool 122 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>122. Opus Clip</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool that repurposes long videos into short, shareable clips for social media.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF69B4/FFFFFF?text=AI123" alt="AI Tool 123 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>123. Paperpal</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI grammar checker and academic writing assistant for researchers.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/1E90FF/FFFFFF?text=AI124" alt="AI Tool 124 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>124. Pika Labs</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI text-to-video and image-to-video generation platform (often used via Discord).</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/F0E68C/000000?text=AI125" alt="AI Tool 125 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>125. Playground AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Online AI image creator and editor with various features.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/DA70D6/FFFFFF?text=AI126" alt="AI Tool 126 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>126. Poe (by Quora)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Platform allowing users to interact with various AI chatbots and create their own.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFA500/FFFFFF?text=AI127" alt="AI Tool 127 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>127. Postwise</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool specifically designed for writing and scheduling engaging Twitter (X) content.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/4682B4/FFFFFF?text=AI128" alt="AI Tool 128 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>128. Profile Picture AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Service using AI to generate various styles of profile pictures from user photos.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/D2691E/FFFFFF?text=AI129" alt="AI Tool 129 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>129. Recraft AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for generating and editing vector art, illustrations, and 3D images.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/CD5C5C/FFFFFF?text=AI130" alt="AI Tool 130 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>130. Resemble AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI voice generator platform focused on custom voice cloning and text-to-speech.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/F5F5DC/000000?text=AI131" alt="AI Tool 131 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>131. Scite</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI platform for discovering and evaluating scientific articles by showing citation context.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFFFE0/000000?text=AI132" alt="AI Tool 132 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>132. Simplified</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">All-in-one platform with AI tools for graphic design, video editing, and content writing.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/008000/FFFFFF?text=AI133" alt="AI Tool 133 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>133. Splash Pro</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI music generation tool, allowing text-to-music creation and singing with AI voices.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/B0E0E6/000000?text=AI134" alt="AI Tool 134 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>134. Stablediffusionweb.com</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">An easy-to-use online interface for generating images with Stable Diffusion.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FA8072/FFFFFF?text=AI135" alt="AI Tool 135 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>135. Sudowrite</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI writing partner specifically designed for creative writers and novelists.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/800080/FFFFFF?text=AI136" alt="AI Tool 136 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>136. Suno AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI model focused on generating realistic music, including vocals, from text prompts.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFDAB9/000000?text=AI137" alt="AI Tool 137 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>137. Taplio</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI-powered tool for growing a personal brand on LinkedIn.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/4B0082/FFFFFF?text=AI138" alt="AI Tool 138 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>138. Tenweb AI Website Builder</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for generating WordPress websites based on descriptions or by recreating pages.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/D3D3D3/000000?text=AI139" alt="AI Tool 139 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>139. TextFX (Google Labs)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Experimental AI tools for rappers, writers, and word artists.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF4500/FFFFFF?text=AI140" alt="AI Tool 140 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>140. Topaz Labs AI Tools</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Suite of AI-powered software for photo and video enhancement (upscaling, sharpening, noise reduction).</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF8C00/FFFFFF?text=AI141" alt="AI Tool 141 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>141. Tweet Hunter</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool focused on helping users grow and monetize their Twitter (X) audience.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/C71585/FFFFFF?text=AI142" alt="AI Tool 142 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>142. Veed.io AI Tools</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Online video editor incorporating AI features like transcription, translation, eye contact correction.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/191970/FFFFFF?text=AI143" alt="AI Tool 143 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>143. Vidyo.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool that repurposes long-form video content into short social media clips.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/ADFF2F/000000?text=AI144" alt="AI Tool 144 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>144. Vizcom AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for transforming sketches into concept drawings and renderings quickly.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/ADD8E6/000000?text=AI145" alt="AI Tool 145 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>145. Vocal Remover</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Online service using AI to separate vocals and instrumental tracks from songs.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFB6C1/000000?text=AI146" alt="AI Tool 146 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>146. WatermarkRemover.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool designed to remove watermarks from images.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA07A/000000?text=AI147" alt="AI Tool 147 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>147. Wisecut</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video editor that automatically cuts silences, adds subtitles, and creates jump cuts.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/EE82EE/FFFFFF?text=AI148" alt="AI Tool 148 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>148. WolfarmAlpha</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Computational knowledge engine that answers factual queries by computing answers from curated data.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F0E68C/000000?text=AI149" alt="AI Tool 149 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>149. Yatter Plus</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for content creation and repurposing across different platforms.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/98FB98/000000?text=AI150" alt="AI Tool 150 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>150. Zapier AI Features</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Automation platform Zapier includes AI capabilities for building smarter workflows.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/AFEEEE/000000?text=AI151" alt="AI Tool 151 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>151. Consensus</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI search engine focused on finding evidence-based answers from scientific research.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DB7093/FFFFFF?text=AI152" alt="AI Tool 152 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>152. Elicit</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI research assistant designed to help automate literature reviews and research tasks.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFEFD5/000000?text=AI153" alt="AI Tool 153 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>153. Guidde</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for creating video documentation and how-to guides quickly.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/CD5C5C/FFFFFF?text=AI154" alt="AI Tool 154 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>154. Harvey AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform specifically designed for legal professionals to assist with research and drafting.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/483D8B/FFFFFF?text=AI155" alt="AI Tool 155 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>155. Julius AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for data analysis and visualization through chat interface.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F4A460/FFFFFF?text=AI156" alt="AI Tool 156 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>156. Kickresume AI Writer</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI feature within Kickresume to help write resume and cover letter content.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00CED1/000000?text=AI157" alt="AI Tool 157 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>157. Liner AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI copilot (often browser extension) for web highlighting, summarization, and search.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF6347/FFFFFF?text=AI158" alt="AI Tool 158 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>158. Magic Eraser</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool (web and app) for removing unwanted objects from photos.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/4169E1/FFFFFF?text=AI159" alt="AI Tool 159 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>159. Monica AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI assistant (browser extension) providing chat, writing, and other features across the web.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/808000/FFFFFF?text=AI160" alt="AI Tool 160 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>160. OctoML</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform focused on deploying and optimizing machine learning models efficiently.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6495ED/FFFFFF?text=AI161" alt="AI Tool 161 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>161. PhotoRoom</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI photo editor app focused on background removal, object removal, and template-based designs.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/008B8B/FFFFFF?text=AI162" alt="AI Tool 162 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>162. Puzzle Maker AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for generating various types of puzzles (crosswords, word searches) from text.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0C4DE/000000?text=AI163" alt="AI Tool 163 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>163. Readwise Reader</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Read-it-later app with AI features (Ghostreader) for summarization and Q&A.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/556B2F/FFFFFF?text=AI164" alt="AI Tool 164 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>164. Reface AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">App known for AI face swapping features in videos and GIFs.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9932CC/FFFFFF?text=AI165" alt="AI Tool 165 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>165. Scholarcy</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool that reads research papers and articles, breaking them down into summaries.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFD700/000000?text=AI166" alt="AI Tool 166 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>166. SEO.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform using AI to help generate SEO-optimized content and keywords.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI167" alt="AI Tool 167 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>167. SinCode AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">All-in-one AI platform offering writing, image generation, and transcription tools.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DA70D6/FFFFFF?text=AI168" alt="AI Tool 168 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>168. SiteGPT</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for creating custom chatbots trained on your website content.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/8FBC8F/000000?text=AI169" alt="AI Tool 169 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>169. Speechify</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Text-to-speech reader app/extension with AI voices for listening to documents, articles, etc.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/CD853F/FFFFFF?text=AI170" alt="AI Tool 170 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>170. StockAI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI image generation platform specifically focused on creating stock photos.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DDA0DD/000000?text=AI171" alt="AI Tool 171 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>171. Summarize.tech</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for quickly summarizing long YouTube videos.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/BC8F8F/FFFFFF?text=AI172" alt="AI Tool 172 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>172. Syllaby.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to help create video scripts and content strategies for social media.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/A0522D/FFFFFF?text=AI173" alt="AI Tool 173 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>173. Synthesys</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform offering text-to-voiceover, text-to-video, and AI image generation.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFDEAD/000000?text=AI174" alt="AI Tool 174 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>174. Teachable Machine (Google)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Web-based tool to train simple AI models for image, sound, and pose recognition easily.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7B68EE/FFFFFF?text=AI175" alt="AI Tool 175 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>175. Thundercontent</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for generating blog posts, articles, and audio content.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00FF7F/000000?text=AI176" alt="AI Tool 176 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>176. TLDR This</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool (web & extension) for summarizing articles and web pages.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6B8E23/FFFFFF?text=AI177" alt="AI Tool 177 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>177. Typedream AI Site Builder</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Website builder incorporating AI features to help generate site content and structure.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/48D1CC/000000?text=AI178" alt="AI Tool 178 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>178. Unscreen</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for automatically removing backgrounds from videos and GIFs.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9370DB/FFFFFF?text=AI179" alt="AI Tool 179 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>179. Verbatik</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI text-to-speech platform with a wide range of natural-sounding voices.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F08080/FFFFFF?text=AI180" alt="AI Tool 180 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>180. Vidnoz AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video platform offering free tools like AI video generator, avatar generator, face swap.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEFA/000000?text=AI181" alt="AI Tool 181 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>181. Voice.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Real-time AI voice changer software, often used by gamers and content creators.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI182" alt="AI Tool 182 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>182. Whimsical AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features within the Whimsical diagramming tool for generating mind maps and flowcharts.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/778899/FFFFFF?text=AI183" alt="AI Tool 183 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>183. WordAI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI text rewriting tool focused on producing human-quality content that avoids detection.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0E0E6/000000?text=AI184" alt="AI Tool 184 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>184. Xmind AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features integrated into the Xmind mind mapping software.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFC0CB/000000?text=AI185" alt="AI Tool 185 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>185. AgentGPT</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform allowing users to deploy autonomous AI agents to achieve goals.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/E6E6FA/000000?text=AI186" alt="AI Tool 186 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>186. AutoGPT</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Experimental open-source application showcasing autonomous AI agents (requires setup).</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFFACD/000000?text=AI187" alt="AI Tool 187 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>187. Bearly AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Desktop AI assistant for reading, writing, and summarization tasks.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D8BFD8/000000?text=AI188" alt="AI Tool 188 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>188. ClickUp AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features integrated into the ClickUp project management platform.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFB6C1/000000?text=AI189" alt="AI Tool 189 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>189. Cohesive AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI editor designed for creating, refining, and publishing various types of content.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA07A/000000?text=AI190" alt="AI Tool 190 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>190. D-ID Creative Reality Studio</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for generating videos featuring talking avatars from images and text.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI191" alt="AI Tool 191 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>191. Deepbrain AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video generator focusing on creating hyperrealistic AI avatar videos.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEEB/000000?text=AI192" alt="AI Tool 192 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>192. Dubverse.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for video dubbing, voiceover, and subtitling across multiple languages.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/32CD32/FFFFFF?text=AI193" alt="AI Tool 193 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>193. Extendly</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered customer service automation and chatbot platform.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6A5ACD/FFFFFF?text=AI194" alt="AI Tool 194 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>194. Finalle.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool focused on financial data analysis and research for investors.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/EE82EE/FFFFFF?text=AI195" alt="AI Tool 195 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>195. FlowGPT</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Community platform for sharing and discovering useful ChatGPT prompts.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F5DEB3/000000?text=AI196" alt="AI Tool 196 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>196. Forefront AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform providing access to various large language models through a single interface.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/5F9EA0/FFFFFF?text=AI197" alt="AI Tool 197 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>197. GGPredict</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI training platform for gamers (specifically CS:GO) to analyze performance and improve.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7FFF00/000000?text=AI198" alt="AI Tool 198 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>198. Glean</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered workplace search engine to find information across company apps.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D2691E/FFFFFF?text=AI199" alt="AI Tool 199 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>199. GoCharlie</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for creating marketing content, including images, blogs, and social media posts.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/000080/FFFFFF?text=AI200" alt="AI Tool 200 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>200. Hypotenuse AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing assistant focused on generating product descriptions, blog articles, and ad copy.</p>
+                 </div>
+             </li>
+
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ocean Of AI Tools. Curated list for AI exploration.</p>
+        <p>Note: Tool popularity and features change rapidly. Please visit official sites for current information.</p>
+    </footer>
+
+    <script>
+        // JavaScript for Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const toolList = document.getElementById('toolList');
+        const toolItems = toolList.querySelectorAll('.tool-item'); // Get all list items
+
+        // --- Debounce function (optional but good for performance) ---
+        function debounce(func, delay) {
+            let timeoutId;
+            return function(...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    func.apply(this, args);
+                }, delay);
+            };
+        }
+
+        // --- Filter function ---
+        function filterTools() {
+            const searchTerm = searchInput.value.toLowerCase().trim(); // Get search term inside the function
+
+            toolItems.forEach(item => {
+                const toolDetails = item.querySelector('.tool-details');
+                if (!toolDetails) return; // Skip malformed items
+
+                const nameElement = toolDetails.querySelector('strong');
+                const descriptionElement = toolDetails.querySelector('.tool-description');
+
+                // Get text content, convert to lowercase, default to empty string if element not found
+                const nameText = nameElement ? nameElement.textContent.toLowerCase() : '';
+                const descriptionText = descriptionElement ? descriptionElement.textContent.toLowerCase() : '';
+
+                // Check if search term is present in name OR description
+                const isVisible = nameText.includes(searchTerm) || descriptionText.includes(searchTerm);
+
+                // Add/Remove 'hidden' class for CSS transitions
+                if (isVisible) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        // --- Attach event listener with debounce ---
+        // searchInput.addEventListener('input', debounce(filterTools, 250)); // Debounce with 250ms delay
+
+        // --- Attach event listener without debounce (simpler) ---
+         searchInput.addEventListener('input', filterTools);
+
+        // --- Initial filter on page load (optional, if needed) ---
+        // filterTools();
+
+    </script>
+
+</body>
+</html>
+```
