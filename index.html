@@ -1,945 +1,1813 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oceans of AI - All In One</title>
+    <title>Ocean Of AI Tools - 200 Tools</title>
+    <!-- Link to a potential CSS file for styling (optional) -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
-        /* --- (Previous CSS styles remain largely the same) --- */
-         /* General Styles */
+        /* Basic styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #eef1f5;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #333;
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f8ff;
         }
-
-        .promo-header {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #00838F;
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 15px; /* Reduced margin */
+        }
+        header p {
+            text-align: center;
+            color: #333;
             margin-bottom: 25px;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
             text-align: center;
+            margin-bottom: 30px;
+        }
+        #searchInput {
+            padding: 10px 15px;
+            width: 80%;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 1em;
+            box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        #searchInput:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
         }
 
-        /* Phone Mockup Styles */
-        .phone-mockup {
-            width: 375px;
-            max-height: 85vh;
-            height: 812px;
-            background-color: #111;
-            border-radius: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            position: relative;
-            box-sizing: border-box;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+        /* Tool List Styles */
+        .tool-list {
+            list-style: none;
+            padding: 0;
         }
-
-        .notch {
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            height: 30px;
-            background-color: #111;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-            z-index: 10;
-        }
-
-        .screen {
-            width: 100%;
-            height: 100%;
+        .tool-item {
             background-color: #ffffff;
-            border-radius: 25px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-             flex: 1;
-        }
-
-        /* Status Bar Styles */
-        .status-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px 5px 20px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #333;
-            height: 25px;
-            background-color: #fff;
-            z-index: 5;
-            box-sizing: border-box;
-            flex-shrink: 0;
-        }
-        .status-bar .time { font-weight: bold; }
-        .status-bar .icons span { margin-left: 5px; }
-
-        /* App Header Styles */
-        .app-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #00838F;
-            color: #ffffff;
-            height: 50px;
-            box-sizing: border-box;
-             flex-shrink: 0;
-        }
-        .app-header h1 { font-size: 1.4em; margin: 0; font-weight: 600; }
-        .app-header .header-icons span { font-size: 1.5em; margin-left: 15px; cursor: pointer; }
-        .app-header .header-icons .star { color: #FFEB3B; }
-
-        /* Tabs Styles */
-        .tabs {
-            display: flex;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            height: 45px;
-            box-sizing: border-box;
-            flex-shrink: 0;
-        }
-        .tab {
-            flex: 1;
-            text-align: center;
-            padding: 12px 0;
-            font-weight: 600;
-            color: #757575;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: color 0.3s, border-color 0.3s;
-            position: relative;
-            font-size: 0.9em;
-        }
-        .tab.active { color: #00838F; border-bottom-color: #00838F; }
-
-        /* Content Area Styles */
-        .content {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 15px;
-            background-color: #f8f9fa;
-        }
-        .content-section h4 { /* Section titles within content */
-             font-size: 1.2em;
-             color: #333;
-             margin-bottom: 15px;
-             margin-top: 0;
-             border-bottom: 1px solid #eee;
-             padding-bottom: 5px;
-        }
-
-        .tool-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Two columns */
-             grid-auto-rows: minmax(180px, auto); /* Ensure rows have a min height */
-            gap: 15px;
-        }
-
-        .tool-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            /* min-height: 170px; Removed fixed min-height to rely on grid auto rows */
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.2s ease-in-out;
-            box-sizing: border-box;
-            overflow: hidden; /* Prevent content overflow */
-        }
-        .tool-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); }
-
-        .tool-card .star-icon { position: absolute; top: 10px; right: 10px; font-size: 1.3em; color: #bdbdbd; cursor: pointer; z-index: 2; }
-        .tool-card .star-icon.favorited { color: #FFC107; }
-
-        .tool-card .tool-logo {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            background-color: #e0e0e0; /* Default background */
-            font-size: 1.2em; /* Slightly smaller default */
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Vertically center items */
+            transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out, padding 0.3s ease-in-out, margin 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth hide/show */
+            overflow: hidden; /* Needed for height transition */
+        }
+
+        /* Style for hidden items during search */
+        .tool-item.hidden {
+           opacity: 0;
+           height: 0;
+           padding-top: 0;
+           padding-bottom: 0;
+           margin-top: 0;
+           margin-bottom: 0;
+           border-width: 0;
+        }
+
+
+        .tool-image {
+            width: 50px; /* Fixed width for logo */
+            height: 50px; /* Fixed height for logo */
+            object-fit: contain; /* Scale image nicely */
+            margin-right: 15px; /* Space between image and text */
+            border-radius: 5px; /* Slightly rounded corners for image */
+            flex-shrink: 0; /* Prevent image from shrinking */
+            background-color: #eee; /* Placeholder background */
+        }
+
+        .tool-details {
+            flex-grow: 1; /* Allow text details to take remaining space */
+            min-width: 0; /* Prevent flex item overflow */
+        }
+
+        .tool-details strong {
+            color: #003d80;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .tool-details a {
+            color: #007bff;
+            text-decoration: none;
             font-weight: bold;
-            color: #757575;
-            flex-shrink: 0;
-            position: relative; /* For pseudo-elements */
-            overflow: hidden; /* Clip content */
+            font-size: 0.9em;
+            margin-left: 10px; /* Space name and link */
+        }
+        .tool-details a:hover {
+            text-decoration: underline;
+        }
+        .tool-description {
+            color: #555;
+            font-size: 0.95em;
+            margin-top: 8px;
+        }
+
+        /* Footer Styles */
+        footer {
             text-align: center;
-            line-height: 48px; /* Center vertically */
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+            color: #777;
         }
-        .tool-card .tool-logo::before { /* Use pseudo-element for text/initials */
-            content: attr(data-initials); /* Get initials from data attribute */
-             display: block;
-             width: 100%;
-             height: 100%;
-        }
-        /* Specific Tool Logo Styles (using data-initials) */
-        .tool-logo.chatgpt { background-color: #74AA9C; color: white; font-size: 0.9em; }
-        .tool-logo.midjourney { background-color: #1a1a1a; color: white; }
-        .tool-logo.stablediff { background: linear-gradient(45deg, #f6d365 0%, #fda085 100%); color: #333; }
-        .tool-logo.claude { background-color: #D07A5F; color: white; }
-        .tool-logo.gemini { background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335); color: white; font-size: 1.1em; }
-        .tool-logo.dalle { background-color: #212121; color: #eee; font-size: 0.9em; }
-        .tool-logo.leonardo { background-color: #D4AF37; color: white; font-size: 0.8em; }
-        .tool-logo.pika { background-color: #000000; color: white; font-size: 0.9em; }
-        .tool-logo.runway { background-color: #8A2BE2; color: white; }
-        .tool-logo.elevenlabs { background-color: #2E86C1; color: white; font-size: 0.9em; }
-        .tool-logo.perplexity { background-color: #179FFF; color: white; font-size: 1.2em; }
-        .tool-logo.copilot { background-color: #6e5494; color: white; }
-        .tool-logo.grok { background-color: #4A90E2; color: white; }
-        .tool-logo.deepseek { background-color: #4A4A4A; color: white; font-size: 0.9em; }
-        .tool-logo.mistral { background: #FF8C00; color: white; font-size: 1.1em; }
-        .tool-logo.krea { background: linear-gradient(90deg, #fcff9e 0%, #c677dd 100%); color: #333; }
-        .tool-logo.suno { background-color: #FF4136; color: white; }
-
-
-        .tool-card h3 {
-            font-size: 1.0em;
-            margin: 0 0 5px 0;
-            color: #333;
-             width: 100%; /* Prevent long names breaking layout */
-             white-space: nowrap;
-             overflow: hidden;
-             text-overflow: ellipsis;
-        }
-
-        .tool-card p {
-            font-size: 0.8em;
-            color: #666;
-            margin: 0;
-            line-height: 1.3;
-            flex-grow: 1;
-            /* Limit description lines */
-             display: -webkit-box;
-             -webkit-line-clamp: 3; /* Show max 3 lines */
-             -webkit-box-orient: vertical;
-             overflow: hidden;
-             text-overflow: ellipsis;
-        }
-         .list-footer {
-             text-align: center;
-             color: #777;
-             margin-top: 25px;
-             font-size: 0.85em;
-             padding-bottom: 10px; /* Space at bottom */
-         }
-
-        /* Utility Section Styles (remain the same) */
-        .utility-section { margin-top: 20px; padding: 15px; background-color: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
-        .utility-section:first-child { margin-top: 0; }
-        .utility-section h4 { margin-top: 0; margin-bottom: 15px; color: #00838F; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 1.1em; }
-        .utility-tool { margin-bottom: 10px; padding: 5px 0; }
-        /* ... other utility styles ... */
-         #qrCodeOutput img { display: block; margin: 10px auto; max-width: 150px; height: auto; background-color: white; padding: 5px; border: 1px solid #eee; }
-         #paintCanvas { border: 1px solid #ccc; cursor: crosshair; touch-action: none; margin-top: 5px; max-width: 100%; height: auto; }
-         #colorPicker { width: 40px; height: 25px; padding: 0; border: none; vertical-align: middle; cursor: pointer; }
-         .timer-display, .day-counter-output, #locationOutput, #deviceInfoOutput { font-weight: bold; color: #006064; }
-         #imagePreview { display: block; max-width: 100%; margin-top: 10px; border: 1px dashed #ccc; min-height: 50px; text-align: center; line-height: 50px; color: #aaa; }
-
-
-        /* Hidden content sections */
-         .content-section { display: none; }
-         .content-section.active { display: block; }
-
     </style>
 </head>
 <body>
 
-    <div class="promo-header">2500+ AI Tools</div>
+    <header>
+        <h1>🌊 Ocean Of AI Tools 🌊</h1>
+        <p>Your curated list of 200 popular AI tools. Use the search bar to find tools!</p>
+    </header>
 
-    <div class="phone-mockup">
-        <div class="notch"></div>
-        <div class="screen">
-            <div class="status-bar">
-                <span class="time">--:--</span>
-                <span class="icons"><span>??</span><span>??</span><span>47</span></span>
-            </div>
+    <main>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for AI tools by name or description...">
+        </div>
 
-            <div class="app-header">
-                <h1>Oceans of AI</h1>
-                <div class="header-icons">
-                     <span><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3zm0 10h8v8H3zM13 3h8v8h-8zm0 10h8v8h-8z"></path></svg></span>
-                    <span class="star">?</span>
-                    <span><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span>
+        <!-- AI Tool List -->
+        <ul class="tool-list" id="toolList">
+            <!-- ** YOU MUST REPLACE placeholder images and links! ** -->
+
+            <!-- Tools 1-100 (as previously generated) -->
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/0000FF/FFFFFF?text=AI1" alt="ChatGPT Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>1. ChatGPT (OpenAI)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Powerful conversational AI for text generation, translation, coding help, and more.</p>
                 </div>
-            </div>
-
-            <div class="tabs">
-                <div class="tab active" data-target="popular">POPULAR</div>
-                <div class="tab" data-target="new">NEW</div>
-                 <div class="tab" data-target="utilities">UTILITIES</div>
-            </div>
-
-            <div class="content">
-                <!-- ======================== -->
-                <!-- Popular AI Tools Section -->
-                <!-- ======================== -->
-                <div class="content-section active" id="popular">
-                    <h4>Most Popular Tools</h4>
-                    <div class="tool-grid">
-                        <!-- ChatGPT -->
-                         <a href="https://chat.openai.com/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo chatgpt" data-initials="GPT"></div>
-                            <h3>ChatGPT</h3>
-                            <p>Leading conversational AI for text generation, coding, Q&A, and more.</p>
-                        </a>
-                        <!-- Midjourney -->
-                         <a href="https://www.midjourney.com/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo midjourney" data-initials="MJ"></div>
-                            <h3>Midjourney</h3>
-                            <p>High-quality AI image generation via Discord prompts.</p>
-                        </a>
-                         <!-- Claude -->
-                         <a href="https://claude.ai/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo claude" data-initials="C"></div>
-                            <h3>Claude</h3>
-                            <p>AI assistant by Anthropic, focused on safety and helpfulness. Handles large context.</p>
-                        </a>
-                        <!-- Google Gemini -->
-                         <a href="https://gemini.google.com/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo gemini" data-initials="G"></div>
-                            <h3>Google Gemini</h3>
-                            <p>Google's powerful multimodal AI model for chat, analysis, and creativity.</p>
-                        </a>
-                        <!-- Stable Diffusion (Link to Stability AI) -->
-                         <a href="https://stability.ai/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo stablediff" data-initials="SD"></div>
-                            <h3>Stable Diffusion</h3>
-                            <p>Popular open-source text-to-image model. Many interfaces available.</p>
-                        </a>
-                        <!-- DALL-E 3 (via ChatGPT/Bing) -->
-                         <a href="https://openai.com/dall-e-3" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo dalle" data-initials="D3"></div>
-                            <h3>DALL-E 3</h3>
-                            <p>OpenAI's advanced image generator, integrated into ChatGPT Plus & Bing.</p>
-                        </a>
-                        <!-- Leonardo.Ai -->
-                         <a href="https://leonardo.ai/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo leonardo" data-initials="L.Ai"></div>
-                            <h3>Leonardo.Ai</h3>
-                            <p>Platform for generating images and game assets using various models.</p>
-                        </a>
-                         <!-- RunwayML -->
-                         <a href="https://runwayml.com/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo runway" data-initials="R"></div>
-                            <h3>Runway Gen-2</h3>
-                            <p>AI video generation from text, image, or existing video clips.</p>
-                        </a>
-                         <!-- Pika Labs -->
-                         <a href="https://pika.art/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo pika" data-initials="Pika"></div>
-                            <h3>Pika Labs</h3>
-                            <p>Generate and edit videos with AI using text or image prompts.</p>
-                        </a>
-                        <!-- ElevenLabs -->
-                        <a href="https://elevenlabs.io/" target="_blank" class="tool-card">
-                           <span class="star-icon">?</span>
-                           <div class="tool-logo elevenlabs" data-initials="11"></div>
-                           <h3>ElevenLabs</h3>
-                           <p>Realistic AI voice generation and text-to-speech synthesis.</p>
-                       </a>
-                       <!-- Perplexity AI -->
-                       <a href="https://www.perplexity.ai/" target="_blank" class="tool-card">
-                          <span class="star-icon">?</span>
-                          <div class="tool-logo perplexity" data-initials="P"></div>
-                          <h3>Perplexity AI</h3>
-                          <p>Conversational search engine providing cited answers and summaries.</p>
-                      </a>
-                       <!-- GitHub Copilot -->
-                       <a href="https://github.com/features/copilot" target="_blank" class="tool-card">
-                          <span class="star-icon">?</span>
-                          <div class="tool-logo copilot" data-initials="GH"></div>
-                          <h3>GitHub Copilot</h3>
-                          <p>AI pair programmer that suggests code and entire functions in your editor.</p>
-                      </a>
-                    </div>
-                    <p class="list-footer">Note: This is a selection of popular tools. Many others exist!</p>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/4285F4/FFFFFF?text=AI2" alt="Google Gemini Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>2. Google Gemini (Google)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Google's multimodal AI model for understanding and generating text, images, audio, and code.</p>
                 </div>
-
-                <!-- =========================== -->
-                <!-- New AI Tools Section        -->
-                <!-- =========================== -->
-                <div class="content-section" id="new">
-                     <h4>New & Noteworthy Tools</h4>
-                     <div class="tool-grid">
-                         <!-- Grok -->
-                        <a href="https://grok.x.ai/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo grok" data-initials="Grok"></div>
-                            <h3>Grok</h3>
-                            <p>AI assistant from xAI with real-time info access and a witty personality.</p>
-                        </a>
-                         <!-- DeepSeek Coder/Math -->
-                        <a href="https://deepseek.com/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo deepseek" data-initials="DS"></div>
-                            <h3>DeepSeek</h3>
-                            <p>Open-source models focused on strong coding and math reasoning abilities.</p>
-                        </a>
-                         <!-- Mistral Large / Le Chat -->
-                         <a href="https://mistral.ai/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo mistral" data-initials="M"></div>
-                            <h3>Mistral AI</h3>
-                            <p>High-performance language models (open & commercial) from Europe.</p>
-                         </a>
-                         <!-- Suno AI -->
-                         <a href="https://suno.ai/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo suno" data-initials="Suno"></div>
-                            <h3>Suno AI</h3>
-                            <p>Generate original songs (lyrics, instruments, vocals) from text prompts.</p>
-                         </a>
-                          <!-- Krea AI -->
-                         <a href="https://www.krea.ai/" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo krea" data-initials="Krea"></div>
-                            <h3>Krea AI</h3>
-                            <p>Real-time AI image generation and enhancement tools.</p>
-                         </a>
-                        <!-- Placeholder New Tool 1 -->
-                        <a href="#" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo" data-initials="N1" style="background-color: #4CAF50; color: white;"></div>
-                            <h3>Emerging Tool Alpha</h3>
-                            <p>Description of a hypothetical new AI tool in development or recently launched.</p>
-                        </a>
-                         <!-- Placeholder New Tool 2 -->
-                        <a href="#" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo" data-initials="N2" style="background-color: #FF9800; color: white;"></div>
-                            <h3>Research Project Beta</h3>
-                            <p>Showcasing a cutting-edge AI research project becoming available.</p>
-                        </a>
-                         <!-- Placeholder New Tool 3 -->
-                         <a href="#" target="_blank" class="tool-card">
-                            <span class="star-icon">?</span>
-                            <div class="tool-logo" data-initials="N3" style="background-color: #673AB7; color: white;"></div>
-                            <h3>Niche AI Solution</h3>
-                            <p>Example of a new tool solving a specific industry problem using AI.</p>
-                        </a>
-
-                     </div>
-                     <p class="list-footer">Note: The AI landscape changes rapidly. This list shows some recent examples.</p>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/8A2BE2/FFFFFF?text=AI3" alt="Midjourney Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>3. Midjourney</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">High-quality AI image generator known for its artistic and detailed outputs (often used via Discord).</p>
                 </div>
-
-                 <!-- =========================== -->
-                 <!-- Utility Tools Section       -->
-                 <!-- =========================== -->
-                 <div class="content-section" id="utilities">
-                    <!-- (Utility tool sections: Timer, Day Counter, Calculator, TTS, QR, Location, Color Picker, Morse, Device Info, Paint, Image Preview - remain exactly the same as the previous version) -->
-
-                    <!-- Timer -->
-                    <div class="utility-section">
-                        <h4>Timer (Stopwatch)</h4>
-                        <div class="utility-tool">
-                             <div class="timer-display" style="font-size: 1.4em; margin-bottom: 10px; text-align: center;">00:00:0</div>
-                             <button id="timerStart">Start</button>
-                             <button id="timerStop">Stop</button>
-                             <button id="timerReset">Reset</button>
-                        </div>
-                    </div>
-
-                    <!-- Day Counter -->
-                    <div class="utility-section">
-                         <h4>Days Until Date</h4>
-                         <div class="utility-tool">
-                            <label for="targetDate">Target Date:</label>
-                            <input type="date" id="targetDate">
-                            <button onclick="calculateDays()">Calculate</button>
-                            <div class="utility-output day-counter-output">Enter a future date.</div>
-                         </div>
-                    </div>
-
-                    <!-- Calculator -->
-                    <div class="utility-section">
-                        <h4>Simple Calculator</h4>
-                        <div class="utility-tool">
-                            <input type="text" id="calcDisplay" readonly style="text-align: right; font-size: 1.2em; margin-bottom: 5px; background-color: #f0f0f0;">
-                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;">
-                                <button onclick="appendToCalc('7')">7</button><button onclick="appendToCalc('8')">8</button><button onclick="appendToCalc('9')">9</button><button onclick="setCalcOp('/')">/</button>
-                                <button onclick="appendToCalc('4')">4</button><button onclick="appendToCalc('5')">5</button><button onclick="appendToCalc('6')">6</button><button onclick="setCalcOp('*')">x</button>
-                                <button onclick="appendToCalc('1')">1</button><button onclick="appendToCalc('2')">2</button><button onclick="appendToCalc('3')">3</button><button onclick="setCalcOp('-')">-</button>
-                                <button onclick="appendToCalc('0')">0</button><button onclick="appendToCalc('.')">.</button><button onclick="clearCalc()">C</button><button onclick="setCalcOp('+')">+</button>
-                                <button onclick="calculateResult()" style="grid-column: span 4; background-color: #006064;">=</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Text to Speech -->
-                    <div class="utility-section">
-                        <h4>Text to Speech</h4>
-                        <div class="utility-tool">
-                            <textarea id="ttsInput" placeholder="Enter text to speak..." rows="3"></textarea>
-                            <button onclick="speakText()">Speak</button>
-                        </div>
-                         <div id="ttsStatus" class="utility-output" style="display: none;"></div>
-                    </div>
-
-                    <!-- QR Code Generator -->
-                    <div class="utility-section">
-                        <h4>QR Code Generator</h4>
-                        <div class="utility-tool">
-                             <input type="text" id="qrInput" placeholder="Enter text or URL for QR code">
-                             <button onclick="generateQR()">Generate QR</button>
-                             <div id="qrCodeOutput" class="utility-output">QR code will appear here.</div>
-                        </div>
-                    </div>
-
-                    <!-- My Location -->
-                    <div class="utility-section">
-                         <h4>My Location</h4>
-                         <div class="utility-tool">
-                             <button onclick="getLocation()">Get My Location</button>
-                             <div id="locationOutput" class="utility-output">Click button to get location (requires permission).</div>
-                         </div>
-                    </div>
-
-                     <!-- Color Picker -->
-                    <div class="utility-section">
-                        <h4>Color Picker</h4>
-                        <div class="utility-tool" style="display: flex; align-items: center;">
-                            <label for="colorPicker" style="margin-bottom: 0;">Color:</label>
-                            <input type="color" id="colorPicker" value="#00838f" oninput="updateColorValue()">
-                            <span id="colorValue" style="margin-left: 10px; font-family: monospace; font-weight: bold;">#00838F</span>
-                        </div>
-                    </div>
-
-                     <!-- Morse Code Translator -->
-                    <div class="utility-section">
-                         <h4>Morse Code</h4>
-                         <div class="utility-tool">
-                             <textarea id="morseInput" placeholder="Enter text or Morse code (use space between letters, / between words)..." rows="3"></textarea>
-                             <button onclick="translateMorse()">Translate</button>
-                             <div id="morseOutput" class="utility-output">Translation will appear here.</div>
-                         </div>
-                    </div>
-
-                    <!-- Device Info -->
-                    <div class="utility-section">
-                         <h4>Basic Device Info</h4>
-                         <div id="deviceInfoOutput" class="utility-output">Loading device info...</div>
-                    </div>
-
-                    <!-- Simple Paint -->
-                    <div class="utility-section">
-                         <h4>Simple Paint</h4>
-                         <div class="utility-tool">
-                             <canvas id="paintCanvas" width="300" height="150"></canvas>
-                             <div style="margin-top: 5px; display: flex; align-items: center; flex-wrap: wrap;">
-                                 <label for="paintColor" style="margin-right: 5px;">Color:</label>
-                                 <input type="color" id="paintColor" value="#000000" style="margin-right: 10px;">
-                                 <label for="lineWidth" style="margin-right: 5px;">Size:</label>
-                                 <input type="range" id="lineWidth" min="1" max="10" value="3" style="width: 80px; margin-right: 10px;">
-                                 <button onclick="clearCanvas()">Clear</button>
-                             </div>
-                         </div>
-                    </div>
-
-                     <!-- Image Tools (Basic Placeholders) -->
-                    <div class="utility-section">
-                         <h4>Image Tools (Basic)</h4>
-                         <div class="utility-tool">
-                             <label for="imageInput">Load Image:</label>
-                             <input type="file" id="imageInput" accept="image/*" onchange="previewImage()">
-                             <img id="imagePreview" src="#" alt="Image preview will appear here">
-                             <p style="font-size: 0.8em; color: #777; margin-top: 5px;">(Note: Full Crop/Enhance functionality is complex and not implemented here.)</p>
-                         </div>
-                    </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI4" alt="DALL-E 3 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>4. DALL-E 3 (OpenAI)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI system that can create realistic images and art from a description in natural language.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/32CD32/FFFFFF?text=AI5" alt="Stable Diffusion Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>5. Stable Diffusion (Stability AI)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Open-source text-to-image model allowing for high customization and local execution.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/1E90FF/FFFFFF?text=AI6" alt="GitHub Copilot Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>6. GitHub Copilot</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI pair programmer that assists developers with code suggestions and completion.</p>
                  </div>
-            </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DAA520/FFFFFF?text=AI7" alt="Claude Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>7. Claude (Anthropic)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI assistant focused on safety and helpfulness, known for reasoning and long context.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF69B4/FFFFFF?text=AI8" alt="Perplexity AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>8. Perplexity AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered search engine that provides direct answers with citations.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/008080/FFFFFF?text=AI9" alt="Grammarly Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>9. Grammarly</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered writing assistant for grammar, spelling, style, and tone checking.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/708090/FFFFFF?text=AI10" alt="Notion AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>10. Notion AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features integrated into Notion for summarizing, brainstorming, and drafting.</p>
+                 </div>
+             </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/8A2BE2/FFFFFF?text=AI11" alt="Canva AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>11. Canva AI Tools</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Suite of AI tools within Canva for image generation, magic writing, background removal, etc.</p>
+                 </div>
+             </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF4500/FFFFFF?text=AI12" alt="Jasper Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>12. Jasper</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI content platform for marketing teams to generate copy, blog posts, and other marketing materials.</p>
+                 </div>
+             </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/2E8B57/FFFFFF?text=AI13" alt="Copy.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>13. Copy.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI copywriting tool for generating marketing copy, emails, social media posts, and more.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/4682B4/FFFFFF?text=AI14" alt="Synthesia Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>14. Synthesia</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video generation platform creating videos with AI avatars from text.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D2691E/FFFFFF?text=AI15" alt="RunwayML Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>15. RunwayML</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI magic tools for creatives, including text-to-video, video editing, and image generation.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6A5ACD/FFFFFF?text=AI16" alt="ElevenLabs Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>16. ElevenLabs</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI voice synthesis and text-to-speech platform known for realistic voice cloning.</p>
+                 </div>
+             </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFD700/000000?text=AI17" alt="Descript Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>17. Descript</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">All-in-one audio and video editor with AI features like transcription, overdub, and filler word removal.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DC143C/FFFFFF?text=AI18" alt="Fireflies.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>18. Fireflies.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI meeting assistant that records, transcribes, and summarizes conversations.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00FFFF/000000?text=AI19" alt="Otter.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>19. Otter.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for real-time transcription and note-taking during meetings.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B8860B/FFFFFF?text=AI20" alt="Tome Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>20. Tome</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered storytelling and presentation creation tool.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF0000/FFFFFF?text=AI21" alt="Adobe Firefly Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>21. Adobe Firefly</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Adobe's family of creative generative AI models integrated into Photoshop, Illustrator, etc.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7FFF00/000000?text=AI22" alt="Leonardo.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>22. Leonardo.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform for creating high-quality visual assets like game assets and concept art using AI.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/BA55D3/FFFFFF?text=AI23" alt="Murf.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>23. Murf.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Versatile AI voice generator with a wide range of voices for presentations and videos.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA500/FFFFFF?text=AI24" alt="Writesonic Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>24. Writesonic</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writer for creating SEO-friendly marketing content like blogs, ads, and descriptions.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00FA9A/000000?text=AI25" alt="Pictory.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>25. Pictory.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool that automatically creates short, branded videos from long-form content.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEEB/000000?text=AI26" alt="Replit AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>26. Replit AI (Ghostwriter)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI coding assistant integrated into the Replit online IDE.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9932CC/FFFFFF?text=AI27" alt="Tabnine Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>27. Tabnine</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI code completion assistant supporting various IDEs and languages.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/E9967A/FFFFFF?text=AI28" alt="Beautiful.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>28. Beautiful.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered presentation software that designs slides automatically.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/40E0D0/000000?text=AI29" alt="HeyGen Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>29. HeyGen</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video platform specializing in generating spokesperson videos with avatars.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F5F5DC/000000?text=AI30" alt="LLaMA Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>30. LLaMA (Meta AI)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Family of large language models released by Meta, often used as a base for others.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00008B/FFFFFF?text=AI31" alt="DeepL Write Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>31. DeepL Write</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing assistant focusing on improving text clarity, style, and grammar.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/3CB371/FFFFFF?text=AI32" alt="QuillBot Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>32. QuillBot</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI paraphrasing tool, summarizer, and grammar checker.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF8C00/FFFFFF?text=AI33" alt="Semrush AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>33. Semrush AI Tools</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Suite of AI-driven SEO and content marketing tools.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/C71585/FFFFFF?text=AI34" alt="Character.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>34. Character.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform for creating and chatting with AI characters based on fictional or real people.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/191970/FFFFFF?text=AI35" alt="You.com Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>35. You.com</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI chat and search engine focusing on privacy and customization.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF1493/FFFFFF?text=AI36" alt="Gencraft Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>36. Gencraft</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI art generator focusing on ease of use for creating images and videos.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/ADFF2F/000000?text=AI37" alt="Looka Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>37. Looka</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered platform for designing logos and branding materials.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/ADD8E6/000000?text=AI38" alt="Designs.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>38. Designs.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI suite for creating logos, videos, banners, and mockups.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFB6C1/000000?text=AI39" alt="Riffusion Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>39. Riffusion</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for generating music from text prompts, often visualizing it.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA07A/000000?text=AI40" alt="Soundraw.io Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>40. Soundraw.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI music generator allowing users to create unique, royalty-free music.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/EE82EE/FFFFFF?text=AI41" alt="Khroma Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>41. Khroma</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI color tool for designers to discover and generate color palettes.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F0E68C/000000?text=AI42" alt="Let's Enhance Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>42. Let's Enhance</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for image upscaling and enhancement without quality loss.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/98FB98/000000?text=AI43" alt="Remove.bg Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>43. Remove.bg</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to automatically remove backgrounds from images.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/AFEEEE/000000?text=AI44" alt="AutoDraw Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>44. AutoDraw (Google)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Simple AI drawing tool that pairs machine learning with artist drawings.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DB7093/FFFFFF?text=AI45" alt="Wordtune Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>45. Wordtune</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing companion that helps rephrase sentences, adjust tone, and summarize text.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFEFD5/000000?text=AI46" alt="Rytr Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>46. Rytr</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing assistant for generating various content types quickly and affordably.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/CD5C5C/FFFFFF?text=AI47" alt="CodiumAI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>47. CodiumAI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI toolkit for developers focusing on generating meaningful tests and analyzing code.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/483D8B/FFFFFF?text=AI48" alt="Blackbox AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>48. Blackbox AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI coding assistant designed to answer programming questions and help write code.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F4A460/FFFFFF?text=AI49" alt="AssemblyAI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>49. AssemblyAI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">API platform for AI models specialized in speech-to-text and audio intelligence.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00CED1/000000?text=AI50" alt="Krisp Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>50. Krisp</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered noise cancelling application for removing background noise during calls.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF6347/FFFFFF?text=AI51" alt="Brain.fm Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>51. Brain.fm</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-generated functional music designed to improve focus, relaxation, and sleep.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/4169E1/FFFFFF?text=AI52" alt="Artbreeder Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>52. Artbreeder</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for creating and modifying images by blending and evolving existing ones.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/808000/FFFFFF?text=AI53" alt="Lumen5 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>53. Lumen5</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered video creation platform that transforms text content into engaging videos.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI54" alt="Surfer SEO Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>54. Surfer SEO</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Content intelligence tool using AI to help optimize articles for search engines.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6495ED/FFFFFF?text=AI55" alt="Motion Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>55. Motion</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered time management and scheduling tool to optimize your calendar.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/008B8B/FFFFFF?text=AI56" alt="Taskade Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>56. Taskade</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered productivity and collaboration platform with integrated outlining, chat, etc.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0C4DE/000000?text=AI57" alt="Decktopus AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>57. Decktopus AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI presentation maker that generates professional presentations quickly.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/556B2F/FFFFFF?text=AI58" alt="Fliki Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>58. Fliki</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool converting text into videos with voiceovers using AI voices.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9932CC/FFFFFF?text=AI59" alt="Podcastle Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>59. Podcastle</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered audio creation platform for podcasting with studio-quality features.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFD700/000000?text=AI60" alt="AdCreative.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>60. AdCreative.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for generating high-conversion ad creatives and social media posts.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI61" alt="HitPaw Photo Enhancer Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>61. HitPaw Photo Enhancer</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool focused on enhancing photo quality, upscaling, and colorizing images.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF4500/FFFFFF?text=AI62" alt="Socratic Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>62. Socratic by Google</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered learning app to help students understand school work.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DA70D6/FFFFFF?text=AI63" alt="Replika Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>63. Replika</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI companion chatbot designed for conversation and emotional support.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/8FBC8F/000000?text=AI64" alt="Codeium Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>64. Codeium</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Free AI code acceleration toolkit, offering autocompletion and chat features.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0E0E6/000000?text=AI65" alt="Visla Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>65. Visla</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video creation and editing platform for teams and individuals.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/CD853F/FFFFFF?text=AI66" alt="Stockimg.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>66. Stockimg.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI image generation tool focused on creating stock photos, wallpapers, book covers, etc.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DDA0DD/000000?text=AI67" alt="Hocoos AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>67. Hocoos AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI website builder that helps create websites quickly using AI prompts.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/BC8F8F/FFFFFF?text=AI68" alt="Sheet+ Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>68. Sheet+</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to generate and explain spreadsheet formulas (Excel & Google Sheets).</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/A0522D/FFFFFF?text=AI69" alt="Poly AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>69. Poly AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform for creating realistic, conversational voice assistants for customer service.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFDEAD/000000?text=AI70" alt="Eightify Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>70. Eightify</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool (often a browser extension) for summarizing YouTube videos.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7B68EE/FFFFFF?text=AI71" alt="Galileo AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>71. Galileo AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for generating UI designs from text descriptions.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00FF7F/000000?text=AI72" alt="Uizard Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>72. Uizard</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered tool to design wireframes, mockups, and prototypes from sketches or text.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/C71585/FFFFFF?text=AI73" alt="Rosebud AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>73. Rosebud AI (TokkingHeads)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool known for animating portraits and photos to make them talk or sing.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6B8E23/FFFFFF?text=AI74" alt="Play.ht Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>74. Play.ht</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI text-to-speech generator with a large library of realistic voices.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF8C00/FFFFFF?text=AI75" alt="Kaiber Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>75. Kaiber</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video generation tool creating visuals from images or text prompts.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/48D1CC/000000?text=AI76" alt="InVideo AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>76. InVideo AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Online video editor with AI features for creating videos from text prompts or scripts.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FA8072/FFFFFF?text=AI77" alt="Lexica Art Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>77. Lexica Art</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Search engine for AI-generated images (Stable Diffusion) and an image generator itself.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9370DB/FFFFFF?text=AI78" alt="Cognysis Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>78. Cognysis</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for data analysis and business intelligence insights.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F08080/FFFFFF?text=AI79" alt="Durable AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>79. Durable AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI website builder targeted at service businesses, generating a site in seconds.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/2E8B57/FFFFFF?text=AI80" alt="Frase.io Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>80. Frase.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for content research, writing, and optimization based on top search results.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEFA/000000?text=AI81" alt="Lovo.ai Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>81. Lovo.ai (Genny)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI voiceover and text-to-speech platform with expressive, human-like voices.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI82" alt="MarketingBlocks AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>82. MarketingBlocks AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">All-in-one AI marketing assistant for creating landing pages, ads, graphics, emails, etc.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/778899/FFFFFF?text=AI83" alt="NightCafe Creator Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>83. NightCafe Creator</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI art generator platform offering multiple methods like text-to-image and style transfer.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0E0E6/000000?text=AI84" alt="Phind Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>84. Phind</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI search engine designed specifically for developers, providing code examples.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFC0CB/000000?text=AI85" alt="Piggy Magic Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>85. Piggy Magic</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to generate mobile-friendly web pages or presentations from text prompts.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/E6E6FA/000000?text=AI86" alt="Poised Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>86. Poised</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI communication coach providing real-time feedback on virtual meetings.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFFACD/000000?text=AI87" alt="PromptPerfect Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>87. PromptPerfect</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool designed to optimize prompts for better results from generative AI models.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D8BFD8/000000?text=AI88" alt="Quickchat AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>88. Quickchat AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform for building custom AI assistants powered by models like GPT.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFB6C1/000000?text=AI89" alt="Remini Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>89. Remini</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI photo and video enhancer app, popular for restoring old or blurry media.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA07A/000000?text=AI90" alt="SlidesAI.io Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>90. SlidesAI.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to create presentation slides from text quickly (integrates with Google Slides).</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI91" alt="Smodin Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>91. Smodin</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing assistant with features like rewriting, plagiarism checking, and citation generation.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEEB/000000?text=AI92" alt="Sonix Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>92. Sonix</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Automated transcription, translation, and subtitling service powered by AI.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/32CD32/FFFFFF?text=AI93" alt="StealthWriter Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>93. StealthWriter</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool designed to rewrite AI-generated text to make it sound more human.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6A5ACD/FFFFFF?text=AI94" alt="Supernormal Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>94. Supernormal</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI meeting assistant that automatically takes notes and generates summaries.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/EE82EE/FFFFFF?text=AI95" alt="Typeface AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>95. Typeface AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Generative AI platform for enterprise content creation, ensuring brand consistency.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F5DEB3/000000?text=AI96" alt="Unbounce Smart Copy Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>96. Unbounce Smart Copy</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI copywriting tool focused on creating marketing content and landing page copy.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/5F9EA0/FFFFFF?text=AI97" alt="Voilà Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>97. Voilà</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI assistant (browser extension) working across websites to help write emails, summarize pages.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7FFF00/000000?text=AI98" alt="Wepik AI Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>98. Wepik AI Tools</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tools integrated into the Wepik design platform for presentations, images, and writing.</p>
+                 </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D2691E/FFFFFF?text=AI99" alt="Windsor.io Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>99. Windsor.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for sending personalized videos to customers at scale.</p>
+                 </div>
+            </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/1E90FF/FFFFFF?text=AI100" alt="Zoom AI Companion Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>100. Zoom AI Companion</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features integrated into Zoom for meeting summaries, smart recordings, chat compose, etc.</p>
+                 </div>
+             </li>
 
-        </div> <!-- End Screen -->
-    </div> <!-- End Phone Mockup -->
+            <!-- Tools 101-200 (New Additions - PLACEHOLDERS) -->
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF00FF/FFFFFF?text=AI101" alt="AI Tool 101 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>101. AI Dungeon</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Text-based adventure game powered by AI, allowing for open-ended storytelling.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/00FF00/FFFFFF?text=AI102" alt="AI Tool 102 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>102. AIVA</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI music composer for creating original soundtracks for videos, games, and more.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFFF00/000000?text=AI103" alt="AI Tool 103 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>103. Boomy</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool that allows users to create original songs in seconds, even without music experience.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/0000CD/FFFFFF?text=AI104" alt="AI Tool 104 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>104. Clipchamp AI Features</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Microsoft Clipchamp video editor includes AI features like auto composition.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/8B008B/FFFFFF?text=AI105" alt="AI Tool 105 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>105. CodeWhisperer (AWS)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI coding companion from Amazon Web Services, similar to Copilot.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF8C00/FFFFFF?text=AI106" alt="AI Tool 106 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>106. Deep Nostalgia (MyHeritage)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI feature to animate faces in still photos, particularly historical ones.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/E0FFFF/000000?text=AI107" alt="AI Tool 107 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>107. DreamStudio (Stability AI)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Web interface for using Stable Diffusion models to generate images.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/DC143C/FFFFFF?text=AI108" alt="AI Tool 108 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>108. Gamma</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for creating engaging presentations, documents, and webpages from notes.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/7CFC00/000000?text=AI109" alt="AI Tool 109 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>109. Glasp</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Social web highlighter and note-taking tool with AI summarization features.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFD700/000000?text=AI110" alt="AI Tool 110 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>110. Hotpot.ai</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Collection of AI tools for graphics, images, and writing tasks.</p>
+                </div>
+            </li>
+            <!-- Add 90 more placeholder items -->
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/ADFF2F/000000?text=AI111" alt="AI Tool 111 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>111. Hume AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI focused on understanding and generating vocal expressions of emotion.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/B22222/FFFFFF?text=AI112" alt="AI Tool 112 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>112. Ideogram AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI image generator known for its ability to render text within images relatively well.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF1493/FFFFFF?text=AI113" alt="AI Tool 113 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>113. Illustroke</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for generating vector illustrations from text prompts.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/00BFFF/FFFFFF?text=AI114" alt="AI Tool 114 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>114. Interior AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for visualizing interior design ideas and virtual staging.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/9400D3/FFFFFF?text=AI115" alt="AI Tool 115 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>115. Krea AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Real-time AI image generation and enhancement tool.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/32CD32/FFFFFF?text=AI116" alt="AI Tool 116 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>116. Lalal.ai</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI-powered service for stem splitting – separating vocals, instruments etc. from audio.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI117" alt="AI Tool 117 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>117. Mage Space</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Web platform offering access to various AI image generation models.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/6A5ACD/FFFFFF?text=AI118" alt="AI Tool 118 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>118. Mem</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI-powered note-taking and knowledge management workspace.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/8B4513/FFFFFF?text=AI119" alt="AI Tool 119 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>119. Microsoft Designer</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Graphic design app with AI features for creating social media posts, invitations etc.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI120" alt="AI Tool 120 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>120. Mubert</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool generating royalty-free background music for various use cases.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/9370DB/FFFFFF?text=AI121" alt="AI Tool 121 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>121. Nvidia Canvas</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI painting tool turning simple brushstrokes into realistic landscape images (requires Nvidia RTX GPU).</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/3CB371/FFFFFF?text=AI122" alt="AI Tool 122 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>122. Opus Clip</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool that repurposes long videos into short, shareable clips for social media.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF69B4/FFFFFF?text=AI123" alt="AI Tool 123 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>123. Paperpal</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI grammar checker and academic writing assistant for researchers.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/1E90FF/FFFFFF?text=AI124" alt="AI Tool 124 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>124. Pika Labs</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI text-to-video and image-to-video generation platform (often used via Discord).</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/F0E68C/000000?text=AI125" alt="AI Tool 125 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>125. Playground AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Online AI image creator and editor with various features.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/DA70D6/FFFFFF?text=AI126" alt="AI Tool 126 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>126. Poe (by Quora)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Platform allowing users to interact with various AI chatbots and create their own.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFA500/FFFFFF?text=AI127" alt="AI Tool 127 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>127. Postwise</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool specifically designed for writing and scheduling engaging Twitter (X) content.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/4682B4/FFFFFF?text=AI128" alt="AI Tool 128 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>128. Profile Picture AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Service using AI to generate various styles of profile pictures from user photos.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/D2691E/FFFFFF?text=AI129" alt="AI Tool 129 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>129. Recraft AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for generating and editing vector art, illustrations, and 3D images.</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                <img src="https://via.placeholder.com/50/CD5C5C/FFFFFF?text=AI130" alt="AI Tool 130 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>130. Resemble AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI voice generator platform focused on custom voice cloning and text-to-speech.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/F5F5DC/000000?text=AI131" alt="AI Tool 131 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>131. Scite</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI platform for discovering and evaluating scientific articles by showing citation context.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFFFE0/000000?text=AI132" alt="AI Tool 132 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>132. Simplified</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">All-in-one platform with AI tools for graphic design, video editing, and content writing.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/008000/FFFFFF?text=AI133" alt="AI Tool 133 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>133. Splash Pro</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI music generation tool, allowing text-to-music creation and singing with AI voices.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/B0E0E6/000000?text=AI134" alt="AI Tool 134 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>134. Stablediffusionweb.com</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">An easy-to-use online interface for generating images with Stable Diffusion.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FA8072/FFFFFF?text=AI135" alt="AI Tool 135 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>135. Sudowrite</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI writing partner specifically designed for creative writers and novelists.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/800080/FFFFFF?text=AI136" alt="AI Tool 136 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>136. Suno AI</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI model focused on generating realistic music, including vocals, from text prompts.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FFDAB9/000000?text=AI137" alt="AI Tool 137 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>137. Taplio</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI-powered tool for growing a personal brand on LinkedIn.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/4B0082/FFFFFF?text=AI138" alt="AI Tool 138 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>138. Tenweb AI Website Builder</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">AI tool for generating WordPress websites based on descriptions or by recreating pages.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/D3D3D3/000000?text=AI139" alt="AI Tool 139 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>139. TextFX (Google Labs)</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Experimental AI tools for rappers, writers, and word artists.</p>
+                </div>
+            </li>
+             <li class="tool-item">
+                <img src="https://via.placeholder.com/50/FF4500/FFFFFF?text=AI140" alt="AI Tool 140 Logo" class="tool-image">
+                <div class="tool-details">
+                    <strong>140. Topaz Labs AI Tools</strong>
+                    <a href="#" target="_blank">Visit Site</a>
+                    <p class="tool-description">Suite of AI-powered software for photo and video enhancement (upscaling, sharpening, noise reduction).</p>
+                </div>
+            </li>
+            <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF8C00/FFFFFF?text=AI141" alt="AI Tool 141 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>141. Tweet Hunter</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool focused on helping users grow and monetize their Twitter (X) audience.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/C71585/FFFFFF?text=AI142" alt="AI Tool 142 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>142. Veed.io AI Tools</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Online video editor incorporating AI features like transcription, translation, eye contact correction.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/191970/FFFFFF?text=AI143" alt="AI Tool 143 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>143. Vidyo.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool that repurposes long-form video content into short social media clips.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/ADFF2F/000000?text=AI144" alt="AI Tool 144 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>144. Vizcom AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for transforming sketches into concept drawings and renderings quickly.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/ADD8E6/000000?text=AI145" alt="AI Tool 145 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>145. Vocal Remover</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Online service using AI to separate vocals and instrumental tracks from songs.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFB6C1/000000?text=AI146" alt="AI Tool 146 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>146. WatermarkRemover.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool designed to remove watermarks from images.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA07A/000000?text=AI147" alt="AI Tool 147 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>147. Wisecut</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video editor that automatically cuts silences, adds subtitles, and creates jump cuts.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/EE82EE/FFFFFF?text=AI148" alt="AI Tool 148 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>148. WolfarmAlpha</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Computational knowledge engine that answers factual queries by computing answers from curated data.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F0E68C/000000?text=AI149" alt="AI Tool 149 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>149. Yatter Plus</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for content creation and repurposing across different platforms.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/98FB98/000000?text=AI150" alt="AI Tool 150 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>150. Zapier AI Features</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Automation platform Zapier includes AI capabilities for building smarter workflows.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/AFEEEE/000000?text=AI151" alt="AI Tool 151 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>151. Consensus</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI search engine focused on finding evidence-based answers from scientific research.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DB7093/FFFFFF?text=AI152" alt="AI Tool 152 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>152. Elicit</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI research assistant designed to help automate literature reviews and research tasks.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFEFD5/000000?text=AI153" alt="AI Tool 153 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>153. Guidde</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for creating video documentation and how-to guides quickly.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/CD5C5C/FFFFFF?text=AI154" alt="AI Tool 154 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>154. Harvey AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform specifically designed for legal professionals to assist with research and drafting.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/483D8B/FFFFFF?text=AI155" alt="AI Tool 155 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>155. Julius AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for data analysis and visualization through chat interface.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F4A460/FFFFFF?text=AI156" alt="AI Tool 156 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>156. Kickresume AI Writer</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI feature within Kickresume to help write resume and cover letter content.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00CED1/000000?text=AI157" alt="AI Tool 157 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>157. Liner AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI copilot (often browser extension) for web highlighting, summarization, and search.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF6347/FFFFFF?text=AI158" alt="AI Tool 158 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>158. Magic Eraser</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool (web and app) for removing unwanted objects from photos.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/4169E1/FFFFFF?text=AI159" alt="AI Tool 159 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>159. Monica AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI assistant (browser extension) providing chat, writing, and other features across the web.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/808000/FFFFFF?text=AI160" alt="AI Tool 160 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>160. OctoML</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform focused on deploying and optimizing machine learning models efficiently.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6495ED/FFFFFF?text=AI161" alt="AI Tool 161 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>161. PhotoRoom</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI photo editor app focused on background removal, object removal, and template-based designs.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/008B8B/FFFFFF?text=AI162" alt="AI Tool 162 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>162. Puzzle Maker AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for generating various types of puzzles (crosswords, word searches) from text.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0C4DE/000000?text=AI163" alt="AI Tool 163 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>163. Readwise Reader</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Read-it-later app with AI features (Ghostreader) for summarization and Q&A.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/556B2F/FFFFFF?text=AI164" alt="AI Tool 164 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>164. Reface AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">App known for AI face swapping features in videos and GIFs.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9932CC/FFFFFF?text=AI165" alt="AI Tool 165 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>165. Scholarcy</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool that reads research papers and articles, breaking them down into summaries.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFD700/000000?text=AI166" alt="AI Tool 166 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>166. SEO.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform using AI to help generate SEO-optimized content and keywords.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI167" alt="AI Tool 167 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>167. SinCode AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">All-in-one AI platform offering writing, image generation, and transcription tools.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DA70D6/FFFFFF?text=AI168" alt="AI Tool 168 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>168. SiteGPT</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for creating custom chatbots trained on your website content.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/8FBC8F/000000?text=AI169" alt="AI Tool 169 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>169. Speechify</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Text-to-speech reader app/extension with AI voices for listening to documents, articles, etc.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/CD853F/FFFFFF?text=AI170" alt="AI Tool 170 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>170. StockAI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI image generation platform specifically focused on creating stock photos.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/DDA0DD/000000?text=AI171" alt="AI Tool 171 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>171. Summarize.tech</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for quickly summarizing long YouTube videos.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/BC8F8F/FFFFFF?text=AI172" alt="AI Tool 172 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>172. Syllaby.io</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool to help create video scripts and content strategies for social media.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/A0522D/FFFFFF?text=AI173" alt="AI Tool 173 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>173. Synthesys</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform offering text-to-voiceover, text-to-video, and AI image generation.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFDEAD/000000?text=AI174" alt="AI Tool 174 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>174. Teachable Machine (Google)</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Web-based tool to train simple AI models for image, sound, and pose recognition easily.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7B68EE/FFFFFF?text=AI175" alt="AI Tool 175 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>175. Thundercontent</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for generating blog posts, articles, and audio content.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/00FF7F/000000?text=AI176" alt="AI Tool 176 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>176. TLDR This</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool (web & extension) for summarizing articles and web pages.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6B8E23/FFFFFF?text=AI177" alt="AI Tool 177 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>177. Typedream AI Site Builder</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Website builder incorporating AI features to help generate site content and structure.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/48D1CC/000000?text=AI178" alt="AI Tool 178 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>178. Unscreen</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool for automatically removing backgrounds from videos and GIFs.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/9370DB/FFFFFF?text=AI179" alt="AI Tool 179 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>179. Verbatik</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI text-to-speech platform with a wide range of natural-sounding voices.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F08080/FFFFFF?text=AI180" alt="AI Tool 180 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>180. Vidnoz AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video platform offering free tools like AI video generator, avatar generator, face swap.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEFA/000000?text=AI181" alt="AI Tool 181 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>181. Voice.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Real-time AI voice changer software, often used by gamers and content creators.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FF7F50/FFFFFF?text=AI182" alt="AI Tool 182 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>182. Whimsical AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features within the Whimsical diagramming tool for generating mind maps and flowcharts.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/778899/FFFFFF?text=AI183" alt="AI Tool 183 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>183. WordAI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI text rewriting tool focused on producing human-quality content that avoids detection.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/B0E0E6/000000?text=AI184" alt="AI Tool 184 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>184. Xmind AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features integrated into the Xmind mind mapping software.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFC0CB/000000?text=AI185" alt="AI Tool 185 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>185. AgentGPT</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform allowing users to deploy autonomous AI agents to achieve goals.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/E6E6FA/000000?text=AI186" alt="AI Tool 186 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>186. AutoGPT</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Experimental open-source application showcasing autonomous AI agents (requires setup).</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFFACD/000000?text=AI187" alt="AI Tool 187 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>187. Bearly AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Desktop AI assistant for reading, writing, and summarization tasks.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D8BFD8/000000?text=AI188" alt="AI Tool 188 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>188. ClickUp AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI features integrated into the ClickUp project management platform.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFB6C1/000000?text=AI189" alt="AI Tool 189 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>189. Cohesive AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI editor designed for creating, refining, and publishing various types of content.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/FFA07A/000000?text=AI190" alt="AI Tool 190 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>190. D-ID Creative Reality Studio</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for generating videos featuring talking avatars from images and text.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/20B2AA/FFFFFF?text=AI191" alt="AI Tool 191 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>191. Deepbrain AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI video generator focusing on creating hyperrealistic AI avatar videos.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/87CEEB/000000?text=AI192" alt="AI Tool 192 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>192. Dubverse.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for video dubbing, voiceover, and subtitling across multiple languages.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/32CD32/FFFFFF?text=AI193" alt="AI Tool 193 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>193. Extendly</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered customer service automation and chatbot platform.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/6A5ACD/FFFFFF?text=AI194" alt="AI Tool 194 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>194. Finalle.ai</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI tool focused on financial data analysis and research for investors.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/EE82EE/FFFFFF?text=AI195" alt="AI Tool 195 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>195. FlowGPT</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Community platform for sharing and discovering useful ChatGPT prompts.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/F5DEB3/000000?text=AI196" alt="AI Tool 196 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>196. Forefront AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">Platform providing access to various large language models through a single interface.</p>
+                 </div>
+             </li>
+             <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/5F9EA0/FFFFFF?text=AI197" alt="AI Tool 197 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>197. GGPredict</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI training platform for gamers (specifically CS:GO) to analyze performance and improve.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/7FFF00/000000?text=AI198" alt="AI Tool 198 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>198. Glean</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI-powered workplace search engine to find information across company apps.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/D2691E/FFFFFF?text=AI199" alt="AI Tool 199 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>199. GoCharlie</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI platform for creating marketing content, including images, blogs, and social media posts.</p>
+                 </div>
+             </li>
+              <li class="tool-item">
+                 <img src="https://via.placeholder.com/50/000080/FFFFFF?text=AI200" alt="AI Tool 200 Logo" class="tool-image">
+                 <div class="tool-details">
+                     <strong>200. Hypotenuse AI</strong>
+                     <a href="#" target="_blank">Visit Site</a>
+                     <p class="tool-description">AI writing assistant focused on generating product descriptions, blog articles, and ad copy.</p>
+                 </div>
+             </li>
 
-    <!-- JavaScript Section -->
-    <!-- QR Code Library (qrcode.min.js) Embedded -->
-     <script>
-    /* QR Code Library (qrcode.min.js content goes here - same as before) */
-    var QRCode;!function(){function t(t){this.mode=r.MODE_8BIT_BYTE,this.data=t,this.parsedData=[];for(var e=0,n=this.data.length;e<n;e++){var i=this.data.charCodeAt(e);i>65536?(this.parsedData.push(i>>18&255),this.parsedData.push(i>>12&255),this.parsedData.push(i>>6&255),this.parsedData.push(63&i)):i>2048?(this.parsedData.push(i>>12&255),this.parsedData.push(i>>6&255),this.parsedData.push(63&i)):i>128?(this.parsedData.push(i>>6&255),this.parsedData.push(63&i)):this.parsedData.push(255&i)}this.parsedData=Array.prototype.concat.apply([],this.parsedData),this.parsedData.length!=this.data.length&&(this.parsedData.unshift(191),this.parsedData.unshift(187),this.parsedData.unshift(239))}function e(t,e){this.typeNumber=t,this.errorCorrectLevel=e,this.modules=null,this.moduleCount=0,this.dataCache=null,this.dataList=[]}function n(t,e){if(void 0==t.length)throw new Error(t.length+"/"+e);for(var n=0;n<t.length&&0==t[n];)n++;this.num=new Array(t.length-n+e);for(var i=0;i<t.length-n;i++)this.num[i]=t[i+n]}function i(t,e){this.totalCount=t,this.dataCount=e}function r(t,e){switch(this.mode=a.MODE_NUMBER,this.data=t,this.parsedData=e,this.mode){case a.MODE_NUMBER:var n=o.getNumber(this.data);this.bits=o.getBits(n,10);break;case a.MODE_ALPHA_NUM:var n=o.getNumber(this.data);this.bits=o.getBits(n,6);break;case a.MODE_8BIT_BYTE:this.bits=function(t){for(var e=0,n=0;n<t.length;n++)e++;return 8*e}(this.parsedData);break;case a.MODE_KANJI:this.bits=function(t){for(var e=0,n=0;n<t.length;n++)e++;return 13*e}(this.parsedData)}this.getLength=function(){return this.data.length},this.getBits=function(){return this.bits},this.write=function(t){t.put(this.mode,4),t.put(this.getLength(),o.getLengthInBits(this.mode,this.typeNumber)),t.put(this.bits,this.parsedData)}}function o(t,e){this.buffer=new Array,this.length=0,this.put=function(t,e){for(var n=0;e>n;n++)this.putBit(1==t>>e-n-1&1)},this.putBit=function(t){this.buffer[this.length>>3]|=(t?128>>this.length%8:0),this.length++},this.getLengthInBits=function(){return this.length},this.getBuffer=function(){return this.buffer}}function s(t){var e=new o;e.put(t.mode,4),e.put(t.getLength(),l.getLengthInBits(t.mode,t.typeNumber)),t.write(e);for(var n=0,i=0;i<t.length;i++)n+=t[i].getLength();var r=8*n,s=l.getCapacity(t.typeNumber,t.errorCorrectLevel);r>s&&(r=s);var a=r%8;0!=a&&(r+=8-a);for(var u=0;r-8*n>u;u++)e.putBit(0);if(e.getLengthInBits()%8!=0)throw new Error("length wrong: "+e.getLengthInBits());return e.getBuffer()}function a(t){this.data=t,this.encodedData=new Array(t.length),this.encode=function(t){for(var e=new n(t,0),i=0;i<t.length;i++){var r=e.mod(this.data[i]);this.encodedData[i]=r}}}t.prototype={getLength:function(t){return this.parsedData.length},write:function(t){for(var e=0,n=this.parsedData.length;e<n;e++)t.put(this.parsedData[e],8)}},e.prototype={addData:function(e){var n=new t(e);this.dataList.push(n),this.dataCache=null},isDark:function(t,e){if(0>t||this.moduleCount<=t||0>e||this.moduleCount<=e)throw new Error(t+","+e);return this.modules[t][e]},getModuleCount:function(){return this.moduleCount},make:function(){this.makeImpl(!1,this.getBestMaskPattern())},makeImpl:function(t,n){this.moduleCount=4*this.typeNumber+17,this.modules=new Array(this.moduleCount);for(var i=0;i<this.moduleCount;i++){this.modules[i]=new Array(this.moduleCount);for(var r=0;r<this.moduleCount;r++)this.modules[i][r]=null}this.setupPositionProbePattern(0,0),this.setupPositionProbePattern(this.moduleCount-7,0),this.setupPositionProbePattern(0,this.moduleCount-7),this.setupPositionAdjustPattern(),this.setupTimingPattern(),this.setupTypeInfo(t,n),this.typeNumber>=7&&this.setupTypeNumber(t),null==this.dataCache&&(this.dataCache=e.createData(this.typeNumber,this.errorCorrectLevel,this.dataList)),this.mapData(this.dataCache,n)},setupPositionProbePattern:function(t,e){for(var n=-1;7>=n;n++)if(!(-1>=t+n||this.moduleCount<=t+n))for(var i=-1;7>=i;i++)-1>=e+i||this.moduleCount<=e+i||(this.modules[t+n][e+i]=n>=0&&6>=n&&(0==i||6==i)||i>=0&&6>=i&&(0==n||6==n)||n>=2&&4>=n&&i>=2&&4>=i?!0:!1)},getBestMaskPattern:function(){for(var t=0,e=0,n=0;8>n;n++){this.makeImpl(!0,n);var i=l.getLostPoint(this);(0==n||t>i)&&(t=i,e=n)}return e},createMovieClip:function(t,e,n){var i=t.createEmptyMovieClip(e,n),r=1;this.make();for(var o=0;o<this.modules.length;o++){var s=o+1;for(var a=0;a<this.modules[o].length;a++){var u=a+1,h=this.modules[o][a];h&&(i.beginFill(0,100),i.moveTo(u*r,s*r),i.lineTo((u+1)*r,s*r),i.lineTo((u+1)*r,(s+1)*r),i.lineTo(u*r,(s+1)*r),i.endFill())}}return i},setupTimingPattern:function(){for(var t=8;t<this.moduleCount-8;t++)null==this.modules[t][6]&&(this.modules[t][6]=t%2==0);for(var e=8;e<this.moduleCount-8;e++)null==this.modules[6][e]&&(this.modules[6][e]=e%2==0)},setupPositionAdjustPattern:function(){for(var t=l.getPatternPosition(this.typeNumber),e=0;e<t.length;e++)for(var n=0;n<t.length;n++){var i=t[e],r=t[n];if(null==this.modules[i][r])for(var o=-2;2>=o;o++)for(var s=-2;2>=s;s++)this.modules[i+o][r+s]=-2==o||2==o||-2==s||2==s||0==o&&0==s?!0:!1}},setupTypeNumber:function(t){for(var e=l.getBCHTypeNumber(this.typeNumber),n=0;18>n;n++){var i=!t&&1==e>>n&1;this.modules[Math.floor(n/3)][n%3+this.moduleCount-8-3]=i}for(var n=0;18>n;n++){var i=!t&&1==e>>n&1;this.modules[n%3+this.moduleCount-8-3][Math.floor(n/3)]=i}},setupTypeInfo:function(t,e){for(var n=this.errorCorrectLevel<<3|e,i=l.getBCHTypeInfo(n),r=0;15>r;r++){var o=!t&&1==i>>r&1;6>r?this.modules[r][8]=o:8>r?this.modules[r+1][8]=o:this.modules[this.moduleCount-15+r][8]=o}for(var r=0;15>r;r++){var o=!t&&1==i>>r&1;8>r?this.modules[8][this.moduleCount-r-1]=o:9>r?this.modules[8][15-r-1+1]=o:this.modules[8][15-r-1]=o}this.modules[this.moduleCount-8][8]=!t},mapData:function(t,e){for(var n=-1,i=this.moduleCount-1,r=7,o=0,s=this.moduleCount-1;s>0;s-=2)for(6==s&&s--;;){for(var a=0;2>a;a++)if(null==this.modules[i][s-a]){var u=!1;o<t.length&&(u=1==t[o]>>>r&1),l.getMask(e,i,s-a)&&(u=!u),this.modules[i][s-a]=u,r--,r==-1&&(o++,r=7)}if(i+=n,0>i||this.moduleCount<=i){i-=n,n=-n;break}}},e.PAD0=236,e.PAD1=17,e.createData=function(t,n,r){for(var o=i.getRSBlocks(t,n),a=new Array,u=0;u<r.length;u++)for(var h=r[u],c=l.getCapacity(t,n),f=s(h),d=0;d<f.length;d++)a.push(f[d]);if(a.length>c)throw new Error("code length overflow. ("+a.length+">"+c+")");for(a.length<c&&a.push(e.PAD0);a.length<c;)a.push(e.PAD1);for(var g=new Array(o.length),p=new Array(o.length),m=0,v=0;v<o.length;v++)g[v]=new Array(o[v].totalCount),p[v]=new Array(o[v].dataCount);for(var w=0;w<o.length;w++)for(var _=0;_<o[w].dataCount;_++)g[w][_]=a[m++];for(var y=0;y<o.length;y++){var A=g[y].length-o[y].dataCount;new a(A).encode(g[y]);for(var _=0;_<A;_++)p[y][_]=g[y][o[y].dataCount+_]}for(var b=new Array,I=0;I<o[0].totalCount;I++)for(var v=0;v<o.length;v++)I<o[v].totalCount&&b.push(g[v][I]);for(var E=0;E<o[0].totalCount-o[0].dataCount;E++)for(var v=0;v<o.length;v++)E<o[v].totalCount-o[v].dataCount&&b.push(p[v][E]);return b},n.prototype={get:function(t){return this.num[t]},getLength:function(){return this.num.length},multiply:function(t){for(var e=new Array(this.getLength()+t.getLength()-1),n=0;n<this.getLength();n++)for(var i=0;i<t.getLength();i++)e[n+i]^=l.gexp(l.glog(this.get(n))+l.glog(t.get(i)));return new n(e,0)},mod:function(t){if(this.getLength()-t.getLength()<0)return this;for(var e=l.glog(this.get(0))-l.glog(t.get(0)),n=new Array(this.getLength()),i=0;i<this.getLength();i++)n[i]=this.get(i);for(var i=0;i<t.getLength();i++)n[i]^=l.gexp(l.glog(t.get(i))+e);return new n(n,0).mod(t)}},i.RS_BLOCK_TABLE=[[1,26,19],[1,26,16],[1,26,13],[1,26,9],[1,44,34],[1,44,28],[1,44,22],[1,44,16],[1,70,55],[1,70,44],[2,35,17],[2,35,13],[1,100,80],[2,50,32],[2,50,24],[4,25,9],[1,134,108],[2,67,43],[2,33,15,2,34,16],[2,33,11,2,34,12],[2,86,68],[4,43,27],[4,43,19],[4,43,15],[2,98,78],[4,49,31],[2,32,14,4,33,15],[4,39,13,1,40,14],[2,121,97],[2,60,38,2,61,39],[4,40,18,2,41,19],[4,40,14,2,41,15],[2,156,124],[3,58,36,2,59,37],[4,36,16,4,37,17],[4,36,12,4,37,13],[2,196,156],[4,69,43,1,70,44],[6,43,19,2,44,20],[6,43,15,2,44,16],[4,224,178],[5,50,32,1,51,33],[8,42,18,4,43,19],[3,32,12,8,33,13],[4,272,216],[4,54,34,4,55,35],[12,45,19,1,46,20],[12,45,15,1,46,16],[6,322,254],[6,58,36,2,59,37],[8,47,20,6,48,21],[7,42,14,4,43,15],[8,370,290],[8,59,37,4,60,38],[8,45,19,8,46,20],[4,44,14,12,45,15],[10,426,334],[9,58,36,4,59,37],[8,50,22,6,51,23],[5,39,15,12,40,16],[12,468,370],[6,58,36,10,59,37],[6,47,21,14,48,22],[11,42,14,14,43,15],[16,532,416],[14,58,36,4,59,37],[14,46,20,10,47,21],[2,42,14,29,43,15],[18,596,468],[6,58,36,14,59,37],[11,46,20,16,47,21],[2,42,14,34,43,15],[20,658,518],[13,58,36,8,59,37],[7,47,21,22,48,22],[17,42,14,19,43,15],[26,736,580],[14,58,36,13,59,37],[3,46,20,28,47,21],[21,42,14,17,43,15],[28,788,624],[18,58,36,13,59,37],[10,46,20,26,47,21],[19,42,14,20,43,15],[34,860,674],[18,58,36,17,59,37],[10,46,20,28,47,21],[19,42,14,22,43,15],[36,932,732],[12,58,36,26,59,37],[12,47,21,28,48,22],[4,42,14,40,43,15],[40,1006,794],[20,58,36,18,59,37],[14,46,20,28,47,21],[7,42,14,40,43,15],[43,1094,860],[19,58,36,20,59,37],[18,47,21,26,48,22],[15,42,14,28,43,15],[46,1156,914],[2,58,36,34,59,37],[17,46,20,30,47,21],[11,42,14,38,43,15],[49,1232,976],[13,58,36,30,59,37],[17,46,20,32,47,21],[15,42,14,32,43,15],[52,1312,1040],[14,58,36,32,59,37],[22,46,20,30,47,21],[3,42,14,46,43,15],[58,1396,1108],[18,58,36,31,59,37],[20,46,20,34,47,21],[19,42,14,34,43,15],[61,1468,1164],[18,58,36,34,59,37],[20,46,20,36,47,21],[19,42,14,36,43,15]],i.getRSBlocks=function(t,e){var n=i.getRsBlockTable(t,e);if(void 0==n)throw new Error("bad rs block @ typeNumber:"+t+"/errorCorrectLevel:"+e);for(var r=n.length/3,o=new Array,s=0;r>s;s++)for(var a=n[3*s+0],u=n[3*s+1],h=n[3*s+2],c=0;a>c;c++)o.push(new i(u,h));return o},i.getRsBlockTable=function(t,e){switch(e){case u.L:return i.RS_BLOCK_TABLE[4*(t-1)+0];case u.M:return i.RS_BLOCK_TABLE[4*(t-1)+1];case u.Q:return i.RS_BLOCK_TABLE[4*(t-1)+2];case u.H:return i.RS_BLOCK_TABLE[4*(t-1)+3];default:return}},r.MODE_NUMBER=1,r.MODE_ALPHA_NUM=2,r.MODE_8BIT_BYTE=4,r.MODE_KANJI=8;var l={PATTERN_POSITION_TABLE:[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70],[6,26,50,74],[6,30,54,78],[6,30,56,82],[6,30,58,86],[6,34,62,90],[6,28,50,72,94],[6,26,50,74,98],[6,30,54,78,102],[6,28,54,80,106],[6,32,58,84,110],[6,30,58,86,114],[6,34,62,90,118],[6,26,50,74,98,122],[6,30,54,78,102,126],[6,26,52,78,104,130],[6,30,56,82,108,134],[6,34,60,86,112,138],[6,30,58,86,114,142],[6,34,62,90,118,146],[6,30,54,78,102,126,150],[6,24,50,76,102,128,154],[6,28,54,80,106,132,158],[6,32,58,84,110,136,162],[6,26,54,82,110,138,166],[6,30,58,86,114,142,170]],G15:1335,G18:7973,G15_MASK:21522,getBCHTypeInfo:function(t){for(var e=t<<10;l.getBCHDigit(e)-l.getBCHDigit(l.G15)>=0;)e^=l.G15<<l.getBCHDigit(e)-l.getBCHDigit(l.G15);return(t<<10|e)^l.G15_MASK},getBCHTypeNumber:function(t){for(var e=t<<12;l.getBCHDigit(e)-l.getBCHDigit(l.G18)>=0;)e^=l.G18<<l.getBCHDigit(e)-l.getBCHDigit(l.G18);return t<<12|e},getBCHDigit:function(t){for(var e=0;0!=t;)e++,t>>>=1;return e},getPatternPosition:function(t){return l.PATTERN_POSITION_TABLE[t-1]},getMask:function(t,e,n){switch(t){case h.PATTERN000:return(e+n)%2==0;case h.PATTERN001:return e%2==0;case h.PATTERN010:return n%3==0;case h.PATTERN011:return(e+n)%3==0;case h.PATTERN100:return(Math.floor(e/2)+Math.floor(n/3))%2==0;case h.PATTERN101:return e*n%2+e*n%3==0;case h.PATTERN110:return(e*n%2+e*n%3)%2==0;case h.PATTERN111:return(e*n%3+(e+n)%2)%2==0;default:throw new Error("bad maskPattern:"+t)}},getErrorCorrectPolynomial:function(t){for(var e=new n([1],0),i=0;t>i;i++)e=e.multiply(new n([1,l.gexp(i)],0));return e},getLengthInBits:function(t,e){if(e>=1&&10>e){if(t==r.MODE_NUMBER)return 10;if(t==r.MODE_ALPHA_NUM)return 9;if(t==r.MODE_8BIT_BYTE||t==r.MODE_KANJI)return 8}else if(27>e){if(t==r.MODE_NUMBER)return 12;if(t==r.MODE_ALPHA_NUM)return 11;if(t==r.MODE_8BIT_BYTE)return 16;if(t==r.MODE_KANJI)return 10}else{if(!(41>e))throw new Error("type:"+e);if(t==r.MODE_NUMBER)return 14;if(t==r.MODE_ALPHA_NUM)return 13;if(t==r.MODE_8BIT_BYTE)return 16;if(t==r.MODE_KANJI)return 12}throw new Error("mode:"+t)},getLostPoint:function(t){for(var e=t.getModuleCount(),n=0,i=0;e>i;i++)for(var r=0;e>r;r++){for(var o=0,s=t.isDark(i,r),a=-1;1>=a;a++)if(!(0>i+a||e<=i+a))for(var u=-1;1>=u;u++)0>r+u||e<=r+u||0==a&&0==u||s==t.isDark(i+a,r+u)&&o++;o>5&&(n+=3+o-5)}for(var i=0;e-1>i;i++)for(var r=0;e-1>r;r++){var h=0;t.isDark(i,r)&&h++,t.isDark(i+1,r)&&h++,t.isDark(i,r+1)&&h++,t.isDark(i+1,r+1)&&h++,(0==h||4==h)&&(n+=3)}for(var i=0;e>i;i++)for(var r=0;e-6>r;r++)t.isDark(i,r)&&!t.isDark(i,r+1)&&t.isDark(i,r+2)&&t.isDark(i,r+3)&&t.isDark(i,r+4)&&!t.isDark(i,r+5)&&t.isDark(i,r+6)&&(n+=40);for(var r=0;e>r;r++)for(var i=0;e-6>i;i++)t.isDark(i,r)&&!t.isDark(i+1,r)&&t.isDark(i+2,r)&&t.isDark(i+3,r)&&t.isDark(i+4,r)&&!t.isDark(i+5,r)&&t.isDark(i+6,r)&&(n+=40);for(var c=0,r=0;e>r;r++)for(var i=0;e>i;i++)t.isDark(i,r)&&c++;var f=Math.abs(100*c/e/e-50)/5;return n+=10*f},getCapacity:function(t,e){var n=i.getRsBlockTable(t,e),r=0;if(void 0!=n)for(var o=0;o<n.length;o+=3)r+=n[o]*n[o+2];return r},glog:function(t){if(1>t)throw new Error("glog("+t+")");return l.LOG_TABLE[t]},gexp:function(t){for(;0>t;)t+=255;for(;t>=256;)t-=255;return l.EXP_TABLE[t]},EXP_TABLE:new Array(256),LOG_TABLE:new Array(256)};for(var c=0;8>c;c++)l.EXP_TABLE[c]=1<<c;for(var c=8;256>c;c++)l.EXP_TABLE[c]=l.EXP_TABLE[c-4]^l.EXP_TABLE[c-5]^l.EXP_TABLE[c-6]^l.EXP_TABLE[c-8];for(var c=0;255>c;c++)l.LOG_TABLE[l.EXP_TABLE[c]]=c;var u={L:1,M:0,Q:3,H:2},h={PATTERN000:0,PATTERN001:1,PATTERN010:2,PATTERN011:3,PATTERN100:4,PATTERN101:5,PATTERN110:6,PATTERN111:7};var f=function(){function t(t){this._el=t,this._oQRCode=null}return t.prototype.draw=function(t){var n=t._oQRCode.modules,i=t._oQRCode.moduleCount,r=t._htOption.width/i,o=t._htOption.height/i,s='<svg width="'+t._htOption.width+'" height="'+t._htOption.height+'" xmlns="http://www.w3.org/2000/svg">';s+='<rect width="100%" height="100%" fill="'+t._htOption.colorLight+'"/>';for(var a=0;a<i;a++)for(var u=0;u<i;u++)n[a][u]&&(s+='<rect x="'+u*r+'" y="'+a*o+'" width="'+r+'" height="'+o+'" fill="'+t._htOption.colorDark+'"/>');s+="</svg>",this._el.innerHTML=s},t.prototype.clear=function(){this._el.innerHTML=""},t}();"function"==typeof define&&define.amd?define([],function(){return e}):"object"==typeof exports?module.exports=e:window.QRCode=e,QRCode=function(t,n){this._htOption={width:256,height:256,typeNumber:4,colorDark:"#000000",colorLight:"#ffffff",correctLevel:u.H,useSVG:!1},n&&(jQuery.extend(this._htOption,n),n.hasOwnProperty("text")&&(this._htOption.text=n.text)),"string"==typeof t?this._htOption.text=t:this._htOption=jQuery.extend(this._htOption,t),"object"!=typeof t||t.hasOwnProperty("text")||console.warn("Constructor use need 3 arguments: text, typeNumber, correctLevel"),this._el=document.getElementById(t),this._oQRCode=null,this._oDrawing=this._htOption.useSVG?new f(this._el):function(t){this._elImage=document.createElement("img"),this._elImage.alt="Scan me!",this._elImage.style.display="none",this._elCanvas=document.createElement("canvas"),this._bIsPainted=!1,this._bSupportDataURI=null,this._el=t},this._htOption.text&&this.makeCode(this._htOption.text)},QRCode.prototype.makeCode=function(t){this._oQRCode=new e(this._htOption.typeNumber,this._htOption.correctLevel),this._oQRCode.addData(t),this._oQRCode.make(),this._el.title=t,this._oDrawing.draw(this),this.makeImage()},QRCode.prototype.makeImage=function(){if("function"==typeof this._oDrawing.makeImage){var t=this._oDrawing._elImage;t.src=this._oDrawing.getDataURL(),t.style.display="block",this._el.innerHTML="",this._el.appendChild(t)}else{var e=this._oDrawing._el;e.style.display="block",this._el.innerHTML="",this._el.appendChild(e)}},QRCode.prototype.clear=function(){this._oDrawing.clear()},QRCode.CorrectLevel=u}();
-    </script>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ocean Of AI Tools. Curated list for AI exploration.</p>
+        <p>Note: Tool popularity and features change rapidly. Please visit official sites for current information.</p>
+    </footer>
+
     <script>
-        /* --- All the JavaScript for Tabs, Stars, Time, Timer, Day Counter, Calculator, TTS, QR, Location, Color, Morse, Device Info, Paint, Image Preview goes here --- */
-        /* --- (It's exactly the same JS as the previous version) --- */
+        // JavaScript for Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const toolList = document.getElementById('toolList');
+        const toolItems = toolList.querySelectorAll('.tool-item'); // Get all list items
 
-         // --- General Setup ---
-        document.addEventListener('DOMContentLoaded', () => {
-            updateTime(); // Initial time update
-            setInterval(updateTime, 1000); // Update time every second
-            showDeviceInfo(); // Show device info on load
-            initPaint(); // Initialize paint canvas listeners
-            updateColorValue(); // Set initial color picker display
-            // Ensure correct tab is shown on load (if needed, though default is Popular)
-            showTab('popular');
-        });
-
-        // --- Tab Functionality ---
-        const tabs = document.querySelectorAll('.tab');
-        const contentSections = document.querySelectorAll('.content-section');
-
-        function showTab(targetId) {
-             tabs.forEach(t => t.classList.remove('active'));
-             contentSections.forEach(s => s.classList.remove('active'));
-
-             const activeTab = document.querySelector(`.tab[data-target="${targetId}"]`);
-             const activeSection = document.getElementById(targetId);
-
-             if(activeTab) activeTab.classList.add('active');
-             if(activeSection) activeSection.classList.add('active');
+        // --- Debounce function (optional but good for performance) ---
+        function debounce(func, delay) {
+            let timeoutId;
+            return function(...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    func.apply(this, args);
+                }, delay);
+            };
         }
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const targetId = tab.getAttribute('data-target');
-                 showTab(targetId);
-            });
-        });
+        // --- Filter function ---
+        function filterTools() {
+            const searchTerm = searchInput.value.toLowerCase().trim(); // Get search term inside the function
 
-        // --- Star Icon Toggle ---
-         const starIcons = document.querySelectorAll('.tool-card .star-icon');
-         starIcons.forEach(icon => {
-            icon.addEventListener('click', (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                icon.classList.toggle('favorited');
-                icon.textContent = icon.classList.contains('favorited') ? '?' : '?';
-            });
-         });
+            toolItems.forEach(item => {
+                const toolDetails = item.querySelector('.tool-details');
+                if (!toolDetails) return; // Skip malformed items
 
-        // --- Status Bar Time ---
-        function updateTime() {
-            const timeEl = document.querySelector('.status-bar .time');
-            if (timeEl) {
-                 timeEl.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-            }
-        }
+                const nameElement = toolDetails.querySelector('strong');
+                const descriptionElement = toolDetails.querySelector('.tool-description');
 
-        // --- Timer (Stopwatch) ---
-        let timerInterval = null;
-        let timerStartTime = 0;
-        let elapsedTime = 0;
-        const timerDisplay = document.querySelector('.timer-display');
-        const startBtn = document.getElementById('timerStart');
-        const stopBtn = document.getElementById('timerStop');
-        const resetBtn = document.getElementById('timerReset');
+                // Get text content, convert to lowercase, default to empty string if element not found
+                const nameText = nameElement ? nameElement.textContent.toLowerCase() : '';
+                const descriptionText = descriptionElement ? descriptionElement.textContent.toLowerCase() : '';
 
-        function formatTime(ms) {
-            let totalSeconds = Math.floor(ms / 1000);
-            let minutes = Math.floor(totalSeconds / 60);
-            let seconds = totalSeconds % 60;
-            let milliseconds = Math.floor((ms % 1000) / 100); // Tenths of a second
-            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${milliseconds}`;
-        }
+                // Check if search term is present in name OR description
+                const isVisible = nameText.includes(searchTerm) || descriptionText.includes(searchTerm);
 
-        function runTimer() {
-            const now = Date.now();
-            elapsedTime = now - timerStartTime;
-            timerDisplay.textContent = formatTime(elapsedTime);
-        }
-        if(startBtn) { // Check if elements exist before adding listeners
-            startBtn.addEventListener('click', () => {
-                if (!timerInterval) {
-                    timerStartTime = Date.now() - elapsedTime;
-                    timerInterval = setInterval(runTimer, 100);
-                    startBtn.disabled = true;
-                    stopBtn.disabled = false;
+                // Add/Remove 'hidden' class for CSS transitions
+                if (isVisible) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
                 }
             });
-            stopBtn.addEventListener('click', () => {
-                if (timerInterval) {
-                    clearInterval(timerInterval);
-                    timerInterval = null;
-                    startBtn.disabled = false;
-                    stopBtn.disabled = true;
-                }
-            });
-            resetBtn.addEventListener('click', () => {
-                clearInterval(timerInterval);
-                timerInterval = null;
-                elapsedTime = 0;
-                timerStartTime = 0;
-                timerDisplay.textContent = '00:00:0';
-                startBtn.disabled = false;
-                stopBtn.disabled = true;
-            });
-            stopBtn.disabled = true; // Initial state
         }
 
-        // --- Day Counter ---
-        function calculateDays() {
-             const targetDateInput = document.getElementById('targetDate');
-             const outputDiv = document.querySelector('.day-counter-output');
-             if(!targetDateInput || !outputDiv) return; // Element check
+        // --- Attach event listener with debounce ---
+        // searchInput.addEventListener('input', debounce(filterTools, 250)); // Debounce with 250ms delay
 
-             const targetDate = new Date(targetDateInput.value);
-             const today = new Date();
-             today.setHours(0, 0, 0, 0);
-             targetDate.setHours(0, 0, 0, 0);
+        // --- Attach event listener without debounce (simpler) ---
+         searchInput.addEventListener('input', filterTools);
 
-             if (!targetDateInput.value || isNaN(targetDate.getTime())) {
-                 outputDiv.textContent = "Please select a valid date."; return;
-             }
-             if (targetDate < today) {
-                 outputDiv.textContent = "Please select a future date."; return;
-             }
-
-             const diffTime = Math.abs(targetDate - today);
-             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-             if (diffDays === 0) { outputDiv.textContent = "The date is today!"; }
-             else { outputDiv.textContent = `${diffDays} day${diffDays === 1 ? '' : 's'} until ${targetDate.toLocaleDateString()}.`; }
-        }
-
-        // --- Simple Calculator Logic ---
-        let calcDisplay = document.getElementById('calcDisplay');
-        let currentInput = '';
-        let operator = null;
-        let firstOperand = null;
-        let shouldResetDisplay = false;
-
-        function appendToCalc(value) {
-            if(!calcDisplay) return;
-            if (shouldResetDisplay) { currentInput = ''; shouldResetDisplay = false; }
-            if (value === '.' && currentInput.includes('.')) return;
-            currentInput += value;
-            calcDisplay.value = currentInput;
-        }
-        function setCalcOp(op) {
-             if(!calcDisplay) return;
-             if (currentInput === '' && firstOperand === null) return;
-             if (shouldResetDisplay) { shouldResetDisplay = false; }
-            if (firstOperand !== null && currentInput !== '') { calculateResult(); }
-             if (currentInput !== '') { firstOperand = parseFloat(currentInput); }
-            operator = op;
-            currentInput = '';
-            calcDisplay.value = firstOperand + ' ' + (operator === '*' ? 'x' : operator);
-        }
-        function calculateResult() {
-            if(!calcDisplay) return;
-            if (operator === null || firstOperand === null || currentInput === '') return;
-            const secondOperand = parseFloat(currentInput);
-            let result;
-            try {
-                switch (operator) {
-                    case '+': result = firstOperand + secondOperand; break;
-                    case '-': result = firstOperand - secondOperand; break;
-                    case '*': result = firstOperand * secondOperand; break;
-                    case '/':
-                        if (secondOperand === 0) throw new Error("Division by zero");
-                        result = firstOperand / secondOperand; break;
-                    default: return;
-                }
-                result = parseFloat(result.toPrecision(12));
-                calcDisplay.value = result;
-                firstOperand = result;
-                currentInput = String(result);
-                shouldResetDisplay = true;
-                operator = null;
-            } catch (error) {
-                calcDisplay.value = "Error";
-                clearCalcState();
-                shouldResetDisplay = true;
-            }
-        }
-         function clearCalcState() { currentInput = ''; operator = null; firstOperand = null; }
-        function clearCalc() {
-            if(!calcDisplay) return;
-            clearCalcState();
-            calcDisplay.value = '';
-            shouldResetDisplay = false;
-        }
-
-        // --- Text to Speech ---
-        function speakText() {
-            const text = document.getElementById('ttsInput')?.value; // Optional chaining
-            const statusDiv = document.getElementById('ttsStatus');
-             if(!statusDiv) return;
-            statusDiv.style.display = 'none';
-
-            if (!text) { statusDiv.textContent = "Please enter text."; statusDiv.style.display = 'block'; return; }
-            if ('speechSynthesis' in window) {
-                speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.onerror = (event) => { console.error("TTS Error", event); statusDiv.textContent = `Error: ${event.error}`; statusDiv.style.display = 'block'; };
-                utterance.onstart = () => { statusDiv.textContent = "Speaking..."; statusDiv.style.display = 'block'; };
-                 utterance.onend = () => { statusDiv.style.display = 'none'; };
-                speechSynthesis.speak(utterance);
-            } else { statusDiv.textContent = "TTS not supported."; statusDiv.style.display = 'block'; }
-        }
-
-         // --- QR Code Generation ---
-         function generateQR() {
-             const text = document.getElementById('qrInput')?.value;
-             const outputDiv = document.getElementById('qrCodeOutput');
-             if(!outputDiv) return;
-             outputDiv.innerHTML = '';
-
-             if (!text) { outputDiv.textContent = 'Please enter text or URL.'; return; }
-            try {
-                if (typeof QRCode === 'undefined') { outputDiv.textContent = 'QR library error.'; console.error('QRCode missing.'); return; }
-                 new QRCode(outputDiv, { text: text, width: 128, height: 128, colorDark : "#000000", colorLight : "#ffffff", correctLevel : QRCode.CorrectLevel.H });
-            } catch (e) { console.error("QR Error:", e); outputDiv.textContent = 'QR generation failed.'; }
-        }
-
-        // --- My Location ---
-        function getLocation() {
-            const outputDiv = document.getElementById('locationOutput');
-            if(!outputDiv) return;
-            if (navigator.geolocation) {
-                outputDiv.textContent = "Getting location...";
-                navigator.geolocation.getCurrentPosition(showPosition, showError, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
-            } else { outputDiv.textContent = "Geolocation not supported."; }
-        }
-        function showPosition(position) {
-            const outputDiv = document.getElementById('locationOutput');
-             if(!outputDiv) return;
-            const lat = position.coords.latitude.toFixed(6);
-            const lon = position.coords.longitude.toFixed(6);
-            outputDiv.innerHTML = `Lat: ${lat}<br>Lon: ${lon}<br><a href="https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}#map=15/${lat}/${lon}" target="_blank" style="font-size:0.9em;">View Map</a>`;
-        }
-        function showError(error) {
-             const outputDiv = document.getElementById('locationOutput');
-              if(!outputDiv) return;
-            let message = "An unknown error occurred.";
-            switch(error.code) {
-                case error.PERMISSION_DENIED: message = "Location permission denied."; break;
-                case error.POSITION_UNAVAILABLE: message = "Location unavailable."; break;
-                case error.TIMEOUT: message = "Location request timed out."; break;
-            }
-             outputDiv.textContent = message;
-        }
-
-        // --- Color Picker ---
-        function updateColorValue() {
-            const colorPicker = document.getElementById('colorPicker');
-            const colorValueSpan = document.getElementById('colorValue');
-             if(!colorPicker || !colorValueSpan) return;
-            const hexValue = colorPicker.value.toUpperCase();
-            colorValueSpan.textContent = hexValue;
-            colorValueSpan.style.color = hexValue;
-        }
-
-        // --- Morse Code Translator ---
-         const morseCodeMap = { 'A':'.-', 'B':'-...', 'C':'-.-.', 'D':'-..', 'E':'.', 'F':'..-.', 'G':'--.', 'H':'....', 'I':'..', 'J':'.---', 'K':'-.-', 'L':'.-..', 'M':'--', 'N':'-.', 'O':'---', 'P':'.--.', 'Q':'--.-', 'R':'.-.', 'S':'...', 'T':'-', 'U':'..-', 'V':'...-', 'W':'.--', 'X':'-..-', 'Y':'-.--', 'Z':'--..', '1':'.----', '2':'..---', '3':'...--', '4':'....-', '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.', '0':'-----', '.':'.-.-.-', ',':'--..--', '?':'..--..', "'":'.----.', '!':'-.-.--', '/':'-..-.', '(':'-.--.', ')':'-.--.-', '&':'.-...', ':':'---...', ';':'-.-.-.', '=':'-...-', '+':".-.-.", '-':'-....-', '_':'..--.-', '"':'.-..-.', '$':'...-..-', '@':'.--.-.', ' ':'/' };
-        const textMap = Object.fromEntries(Object.entries(morseCodeMap).map(([k, v]) => [v, k]));
-        function translateMorse() {
-            const input = document.getElementById('morseInput')?.value.trim();
-            const outputDiv = document.getElementById('morseOutput');
-             if(!outputDiv || !input) { if(outputDiv) outputDiv.textContent = 'Input needed.'; return; }
-            let result = '';
-            const morseCharsRegex = /^[.\- /]+$/;
-            const looksLikeMorse = morseCharsRegex.test(input) && (input.includes('-') || input.includes('.'));
-
-            if (looksLikeMorse) { // Morse to Text
-                const cleanedInput = input.replace(/(\s*\/+\s*|\s{2,})/g, ' / ');
-                result = cleanedInput.split('/').map(word => word.trim().split(/\s+/).map(code => textMap[code] || '?').join('')).join(' ');
-            } else { // Text to Morse
-                 result = input.toUpperCase().split('').map(char => morseCodeMap[char] || '?').join(' ');
-            }
-             outputDiv.textContent = result;
-        }
-
-         // --- Device Info ---
-         function showDeviceInfo() {
-            const outputDiv = document.getElementById('deviceInfoOutput');
-             if(!outputDiv) return;
-            let info = `User Agent: ${navigator.userAgentData ? JSON.stringify(navigator.userAgentData.brands) : navigator.userAgent}<br>`; // UserAgentData is newer
-            info += `Screen: ${screen.width}x${screen.height}px | Avail: ${screen.availWidth}x${screen.availHeight}px | Depth: ${screen.colorDepth}-bit<br>`;
-            info += `Window: ${window.innerWidth}x${window.innerHeight}px | DPR: ${window.devicePixelRatio}<br>`;
-            info += `Platform: ${navigator.userAgentData ? navigator.userAgentData.platform : navigator.platform}<br>`;
-            info += `Language: ${navigator.language}<br>`;
-            info += `Online: ${navigator.onLine}<br>`;
-            info += `Cookies Enabled: ${navigator.cookieEnabled}`;
-             outputDiv.innerHTML = info;
-         }
-
-        // --- Simple Paint Logic ---
-        const canvas = document.getElementById('paintCanvas');
-        let ctx = null; // Initialize later
-        let isPainting = false;
-        let lastX = 0;
-        let lastY = 0;
-
-         function initPaint() {
-             if(!canvas) return;
-             ctx = canvas.getContext('2d');
-             if(!ctx) { console.error("Canvas context not supported"); return; }
-
-            canvas.addEventListener('mousedown', startPaint); canvas.addEventListener('mouseup', stopPaint);
-            canvas.addEventListener('mousemove', draw); canvas.addEventListener('mouseleave', stopPaint);
-            canvas.addEventListener('touchstart', startPaint, { passive: false }); canvas.addEventListener('touchend', stopPaint);
-            canvas.addEventListener('touchmove', draw, { passive: false }); canvas.addEventListener('touchcancel', stopPaint);
-         }
-         function getPaintPos(event) {
-             const rect = canvas.getBoundingClientRect();
-             let clientX, clientY;
-             if (event.touches && event.touches.length > 0) { clientX = event.touches[0].clientX; clientY = event.touches[0].clientY; }
-             else { clientX = event.clientX; clientY = event.clientY; }
-             const scaleX = canvas.width / rect.width; const scaleY = canvas.height / rect.height;
-             return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
-         }
-        function startPaint(e) { e.preventDefault(); isPainting = true; const { x, y } = getPaintPos(e); [lastX, lastY] = [x, y]; }
-        function stopPaint() { if (!isPainting) return; isPainting = false; ctx?.beginPath(); }
-        function draw(e) {
-            if (!isPainting || !ctx) return;
-            e.preventDefault(); const { x, y } = getPaintPos(e);
-            ctx.lineWidth = document.getElementById('lineWidth')?.value || 3;
-            ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-            ctx.strokeStyle = document.getElementById('paintColor')?.value || '#000000';
-            ctx.beginPath(); ctx.moveTo(lastX, lastY); ctx.lineTo(x, y); ctx.stroke();
-             [lastX, lastY] = [x, y];
-        }
-        function clearCanvas() { ctx?.clearRect(0, 0, canvas.width, canvas.height); }
-
-        // --- Basic Image Preview ---
-        function previewImage() {
-            const fileInput = document.getElementById('imageInput');
-            const preview = document.getElementById('imagePreview');
-             if(!fileInput || !preview) return;
-
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result; preview.style.display = 'block'; preview.alt = "Selected image";
-                    preview.style.border = '1px solid #ccc'; preview.style.lineHeight = 'initial';
-                }
-                reader.readAsDataURL(fileInput.files[0]);
-            } else {
-                 preview.src = "#"; preview.style.display = 'block'; preview.alt = "Image preview will appear here";
-                 preview.style.border = '1px dashed #ccc'; preview.style.lineHeight = '50px';
-            }
-        }
+        // --- Initial filter on page load (optional, if needed) ---
+        // filterTools();
 
     </script>
 
 </body>
 </html>
+```
